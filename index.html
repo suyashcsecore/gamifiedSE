@@ -14332,7 +14332,7 @@ async function elearnSendMessage(messageFromButton = null) {
 
     try {
         // Call your backend GPT endpoint
-        const response = await fetch('https://ai-backend-2-z47z.onrender.com/', {
+        const response = await fetch('https://ai-backend-2-z47z.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message })
@@ -14368,6 +14368,7 @@ function elearnAskQuestion(question) {
 </body>
 
 </html>
+
 
 
 
