@@ -155,38 +155,57 @@
         }
     </style>
     <style>
-  /* Modal styles */
-  .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0; top: 0; 
-    width: 100%; height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.5); 
-  }
-  .modal-content {
-    background-color: #fff;
-    margin: 15% auto; 
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%; max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-  .modal-content h3 { margin-top: 0; color: #2c3e50; }
-  .quest { padding: 10px; border-bottom: 1px solid #ddd; }
-  .quest:last-child { border-bottom: none; }
-  .close-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #2ecc71;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .close-btn:hover { background: #27ae60; }
-</style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .quest {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .quest:last-child {
+            border-bottom: none;
+        }
+
+        .close-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: #27ae60;
+        }
+    </style>
 
     <style>
         *,
@@ -1462,193 +1481,217 @@
                 line-height: 1
             }
         }
+
         /* EcoLearn Chatbot Styles */
-.elearn-chat-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 1000px;
-    margin: 0 auto;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-}
+        .elearn-chat-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
 
-.elearn-chat-header {
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-    padding: 20px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 20px;
-    color: white;
-}
+        .elearn-chat-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 20px;
+            color: white;
+        }
 
-.elearn-chat-messages {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .elearn-chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.elearn-message {
-    max-width: 70%;
-    padding: 15px;
-    border-radius: 18px;
-    animation: elearn-fadeIn 0.3s ease;
-}
+        .elearn-message {
+            max-width: 70%;
+            padding: 15px;
+            border-radius: 18px;
+            animation: elearn-fadeIn 0.3s ease;
+        }
 
-@keyframes elearn-fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes elearn-fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-.elearn-user-message {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    align-self: flex-end;
-    border-bottom-right-radius: 5px;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.elearn-bot-message {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    align-self: flex-start;
-    border-bottom-left-radius: 5px;
-}
+        .elearn-user-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
 
-.elearn-chat-input {
-    display: flex;
-    padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(17, 24, 39, 0.5);
-}
+        .elearn-bot-message {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
 
-.elearn-chat-input input {
-    flex: 1;
-    padding: 15px 20px;
-    border-radius: 30px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    outline: none;
-    font-size: 16px;
-}
+        .elearn-chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(17, 24, 39, 0.5);
+        }
 
-.elearn-chat-input button {
-    margin-left: 10px;
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease;
-}
+        .elearn-chat-input input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            font-size: 16px;
+        }
 
-.elearn-chat-input button:hover {
-    transform: scale(1.05);
-}
+        .elearn-chat-input button {
+            margin-left: 10px;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
 
-.elearn-typing-indicator {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-}
+        .elearn-chat-input button:hover {
+            transform: scale(1.05);
+        }
 
-.elearn-typing-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #38ef7d;
-    border-radius: 50%;
-    margin: 0 3px;
-    animation: elearn-typingAnimation 1.4s infinite ease-in-out;
-}
+        .elearn-typing-indicator {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+        }
 
-.elearn-typing-dot:nth-child(1) { animation-delay: 0s; }
-.elearn-typing-dot:nth-child(2) { animation-delay: 0.2s; }
-.elearn-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .elearn-typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #38ef7d;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: elearn-typingAnimation 1.4s infinite ease-in-out;
+        }
 
-@keyframes elearn-typingAnimation {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-5px); }
-}
+        .elearn-typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
 
-.elearn-suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px;
-    background: rgba(17, 24, 39, 0.3);
-}
+        .elearn-typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
 
-.elearn-suggestion {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .elearn-typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
 
-.elearn-suggestion:hover {
-    background: rgba(56, 239, 125, 0.2);
-}
+        @keyframes elearn-typingAnimation {
 
-/* For the chatbot toggle button */
-.elearn-chat-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-    color: white;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
 
-.elearn-chat-window {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    overflow: hidden;
-}
+            30% {
+                transform: translateY(-5px);
+            }
+        }
 
-@media (max-width: 768px) {
-    .elearn-message {
-        max-width: 85%;
-    }
-    
-    .elearn-chat-window {
-        width: 90%;
-        right: 5%;
-        left: 5%;
-        height: 70vh;
-    }
-}
+        .elearn-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(17, 24, 39, 0.3);
+        }
+
+        .elearn-suggestion {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .elearn-suggestion:hover {
+            background: rgba(56, 239, 125, 0.2);
+        }
+
+        /* For the chatbot toggle button */
+        .elearn-chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .elearn-chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .elearn-message {
+                max-width: 85%;
+            }
+
+            .elearn-chat-window {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+                height: 70vh;
+            }
+        }
     </style>
     <style>
         *,
@@ -10733,6 +10776,1321 @@
             }
         }
     </style>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .pointer-events-none {
+            pointer-events: none
+        }
+
+        .fixed {
+            position: fixed
+        }
+
+        .absolute {
+            position: absolute
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .sticky {
+            position: sticky
+        }
+
+        .inset-0 {
+            inset: 0px
+        }
+
+        .top-1\.5 {
+            top: 0.375rem
+        }
+
+        .z-0 {
+            z-index: 0
+        }
+
+        .z-10 {
+            z-index: 10
+        }
+
+        .z-50 {
+            z-index: 50
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mx-4 {
+            margin-left: 1rem;
+            margin-right: 1rem
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-20 {
+            margin-bottom: 5rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem
+        }
+
+        .mr-3 {
+            margin-right: 0.75rem
+        }
+
+        .mt-12 {
+            margin-top: 3rem
+        }
+
+        .mt-8 {
+            margin-top: 2rem
+        }
+
+        .block {
+            display: block
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-12 {
+            height: 3rem
+        }
+
+        .h-20 {
+            height: 5rem
+        }
+
+        .h-4 {
+            height: 1rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-12 {
+            width: 3rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .w-20 {
+            width: 5rem
+        }
+
+        .max-w-5xl {
+            max-width: 64rem
+        }
+
+        .max-w-7xl {
+            max-width: 80rem
+        }
+
+        .max-w-md {
+            max-width: 28rem
+        }
+
+        .cursor-pointer {
+            cursor: pointer
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+        }
+
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+        }
+
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-16 {
+            gap: 4rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-6 {
+            gap: 1.5rem
+        }
+
+        .gap-10 {
+            gap: 2.5rem
+        }
+
+        .gap-12 {
+            gap: 3rem
+        }
+
+        .space-x-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1rem * var(--tw-space-x-reverse));
+            margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-x-8> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(2rem * var(--tw-space-x-reverse));
+            margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-y-6> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1.5rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-8> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(2rem * var(--tw-space-y-reverse))
+        }
+
+        .space-x-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-x-reverse: 0;
+            margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+            margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))
+        }
+
+        .space-y-0> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0px * var(--tw-space-y-reverse))
+        }
+
+        .space-y-10> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(2.5rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.75rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-2> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.5rem * var(--tw-space-y-reverse))
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .overflow-x-hidden {
+            overflow-x: hidden
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem
+        }
+
+        .rounded-3xl {
+            border-radius: 1.5rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem
+        }
+
+        .border {
+            border-width: 1px
+        }
+
+        .border-2 {
+            border-width: 2px
+        }
+
+        .border-b {
+            border-bottom-width: 1px
+        }
+
+        .border-t {
+            border-top-width: 1px
+        }
+
+        .border-blue-500\/30 {
+            border-color: rgb(59 130 246 / 0.3)
+        }
+
+        .border-green-500\/30 {
+            border-color: rgb(34 197 94 / 0.3)
+        }
+
+        .border-orange-500\/30 {
+            border-color: rgb(249 115 22 / 0.3)
+        }
+
+        .border-purple-400 {
+            --tw-border-opacity: 1;
+            border-color: rgb(192 132 252 / var(--tw-border-opacity, 1))
+        }
+
+        .border-purple-500\/30 {
+            border-color: rgb(168 85 247 / 0.3)
+        }
+
+        .border-white\/10 {
+            border-color: rgb(255 255 255 / 0.1)
+        }
+
+        .border-white\/20 {
+            border-color: rgb(255 255 255 / 0.2)
+        }
+
+        .border-yellow-500\/30 {
+            border-color: rgb(234 179 8 / 0.3)
+        }
+
+        .border-purple-400\/30 {
+            border-color: rgb(192 132 252 / 0.3)
+        }
+
+        .border-white {
+            --tw-border-opacity: 1;
+            border-color: rgb(255 255 255 / var(--tw-border-opacity, 1))
+        }
+
+        .bg-gray-900 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-black\/20 {
+            background-color: rgb(0 0 0 / 0.2)
+        }
+
+        .bg-black\/40 {
+            background-color: rgb(0 0 0 / 0.4)
+        }
+
+        .bg-blue-500\/20 {
+            background-color: rgb(59 130 246 / 0.2)
+        }
+
+        .bg-gray-700 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-green-500\/20 {
+            background-color: rgb(34 197 94 / 0.2)
+        }
+
+        .bg-purple-500\/20 {
+            background-color: rgb(168 85 247 / 0.2)
+        }
+
+        .bg-white\/10 {
+            background-color: rgb(255 255 255 / 0.1)
+        }
+
+        .bg-white\/5 {
+            background-color: rgb(255 255 255 / 0.05)
+        }
+
+        .bg-yellow-500\/20 {
+            background-color: rgb(234 179 8 / 0.2)
+        }
+
+        .bg-black\/80 {
+            background-color: rgb(0 0 0 / 0.8)
+        }
+
+        .bg-blue-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-green-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-yellow-500 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, var(--tw-gradient-stops))
+        }
+
+        .bg-gradient-to-br {
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops))
+        }
+
+        .from-orange-500\/20 {
+            --tw-gradient-from: rgb(249 115 22 / 0.2) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(249 115 22 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-blue-400 {
+            --tw-gradient-from: #60a5fa var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(96 165 250 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-blue-500\/20 {
+            --tw-gradient-from: rgb(59 130 246 / 0.2) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(59 130 246 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-gray-300 {
+            --tw-gradient-from: #d1d5db var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(209 213 219 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-green-400 {
+            --tw-gradient-from: #4ade80 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(74 222 128 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-green-500\/10 {
+            --tw-gradient-from: rgb(34 197 94 / 0.1) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(34 197 94 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-green-500\/20 {
+            --tw-gradient-from: rgb(34 197 94 / 0.2) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(34 197 94 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-orange-400 {
+            --tw-gradient-from: #fb923c var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(251 146 60 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-purple-500 {
+            --tw-gradient-from: #a855f7 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(168 85 247 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-purple-500\/20 {
+            --tw-gradient-from: rgb(168 85 247 / 0.2) var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(168 85 247 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .from-yellow-400 {
+            --tw-gradient-from: #facc15 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .to-red-500\/20 {
+            --tw-gradient-to: rgb(239 68 68 / 0.2) var(--tw-gradient-to-position)
+        }
+
+        .to-blue-500\/10 {
+            --tw-gradient-to: rgb(59 130 246 / 0.1) var(--tw-gradient-to-position)
+        }
+
+        .to-blue-600 {
+            --tw-gradient-to: #2563eb var(--tw-gradient-to-position)
+        }
+
+        .to-cyan-600\/20 {
+            --tw-gradient-to: rgb(8 145 178 / 0.2) var(--tw-gradient-to-position)
+        }
+
+        .to-emerald-600\/20 {
+            --tw-gradient-to: rgb(5 150 105 / 0.2) var(--tw-gradient-to-position)
+        }
+
+        .to-gray-500 {
+            --tw-gradient-to: #6b7280 var(--tw-gradient-to-position)
+        }
+
+        .to-green-600 {
+            --tw-gradient-to: #16a34a var(--tw-gradient-to-position)
+        }
+
+        .to-orange-600 {
+            --tw-gradient-to: #ea580c var(--tw-gradient-to-position)
+        }
+
+        .to-pink-500 {
+            --tw-gradient-to: #ec4899 var(--tw-gradient-to-position)
+        }
+
+        .to-pink-500\/20 {
+            --tw-gradient-to: rgb(236 72 153 / 0.2) var(--tw-gradient-to-position)
+        }
+
+        .to-pink-600\/20 {
+            --tw-gradient-to: rgb(219 39 119 / 0.2) var(--tw-gradient-to-position)
+        }
+
+        .to-yellow-600 {
+            --tw-gradient-to: #ca8a04 var(--tw-gradient-to-position)
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .p-8 {
+            padding: 2rem
+        }
+
+        .p-10 {
+            padding: 2.5rem
+        }
+
+        .px-10 {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem
+        }
+
+        .px-3 {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .py-5 {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem
+        }
+
+        .px-12 {
+            padding-left: 3rem;
+            padding-right: 3rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .py-6 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem
+        }
+
+        .pt-8 {
+            padding-top: 2rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+        }
+
+        .text-6xl {
+            font-size: 3.75rem;
+            line-height: 1
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .font-black {
+            font-weight: 900
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .leading-relaxed {
+            line-height: 1.625
+        }
+
+        .leading-tight {
+            line-height: 1.25
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-blue-400 {
+            --tw-text-opacity: 1;
+            color: rgb(96 165 250 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-200 {
+            --tw-text-opacity: 1;
+            color: rgb(229 231 235 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-300 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-400 {
+            --tw-text-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-text-opacity, 1))
+        }
+
+        .text-green-300 {
+            --tw-text-opacity: 1;
+            color: rgb(134 239 172 / var(--tw-text-opacity, 1))
+        }
+
+        .text-green-400 {
+            --tw-text-opacity: 1;
+            color: rgb(74 222 128 / var(--tw-text-opacity, 1))
+        }
+
+        .text-orange-300 {
+            --tw-text-opacity: 1;
+            color: rgb(253 186 116 / var(--tw-text-opacity, 1))
+        }
+
+        .text-orange-400 {
+            --tw-text-opacity: 1;
+            color: rgb(251 146 60 / var(--tw-text-opacity, 1))
+        }
+
+        .text-purple-400 {
+            --tw-text-opacity: 1;
+            color: rgb(192 132 252 / var(--tw-text-opacity, 1))
+        }
+
+        .text-yellow-400 {
+            --tw-text-opacity: 1;
+            color: rgb(250 204 21 / var(--tw-text-opacity, 1))
+        }
+
+        .placeholder-gray-400::placeholder {
+            --tw-placeholder-opacity: 1;
+            color: rgb(156 163 175 / var(--tw-placeholder-opacity, 1))
+        }
+
+        .opacity-20 {
+            opacity: 0.2
+        }
+
+        .opacity-30 {
+            opacity: 0.3
+        }
+
+        .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .backdrop-blur-lg {
+            --tw-backdrop-blur: blur(16px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .backdrop-blur-xl {
+            --tw-backdrop-blur: blur(24px);
+            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .transition-colors {
+            transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .transition-transform {
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .duration-1000 {
+            transition-duration: 1000ms
+        }
+
+        .duration-300 {
+            transition-duration: 300ms
+        }
+
+        .ease-out {
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1)
+        }
+
+        .hover\:scale-105:hover {
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:scale-110:hover {
+            --tw-scale-x: 1.1;
+            --tw-scale-y: 1.1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:scale-90:hover {
+            --tw-scale-x: .9;
+            --tw-scale-y: .9;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:border-blue-400\/50:hover {
+            border-color: rgb(96 165 250 / 0.5)
+        }
+
+        .hover\:border-green-400\/50:hover {
+            border-color: rgb(74 222 128 / 0.5)
+        }
+
+        .hover\:border-purple-400\/50:hover {
+            border-color: rgb(192 132 252 / 0.5)
+        }
+
+        .hover\:border-white\/20:hover {
+            border-color: rgb(255 255 255 / 0.2)
+        }
+
+        .hover\:bg-purple-400:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(192 132 252 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-white:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:text-green-400:hover {
+            --tw-text-opacity: 1;
+            color: rgb(74 222 128 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-white:hover {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-blue-400:hover {
+            --tw-text-opacity: 1;
+            color: rgb(96 165 250 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-gray-900:hover {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity, 1))
+        }
+
+        .hover\:text-red-400:hover {
+            --tw-text-opacity: 1;
+            color: rgb(248 113 113 / var(--tw-text-opacity, 1))
+        }
+
+        .focus\:border-green-400:focus {
+            --tw-border-opacity: 1;
+            border-color: rgb(74 222 128 / var(--tw-border-opacity, 1))
+        }
+
+        .focus\:outline-none:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px
+        }
+
+        .group:hover .group-hover\:scale-110 {
+            --tw-scale-x: 1.1;
+            --tw-scale-y: 1.1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        @media (min-width: 640px) {
+            .sm\:flex-row {
+                flex-direction: row
+            }
+
+            .sm\:px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem
+            }
+
+            .sm\:px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
+        }
+
+        @media (min-width: 768px) {
+            .md\:flex {
+                display: flex
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .md\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr))
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr))
+            }
+
+            .lg\:px-8 {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+
+            .lg\:text-8xl {
+                font-size: 6rem;
+                line-height: 1
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-900 text-white overflow-x-hidden">
@@ -11139,6 +12497,56 @@
         <div class="particle" style="left: 75.2579%; animation-delay: 2.71293s; animation-duration: 7.44766s;"></div>
         <div class="particle" style="left: 50.8021%; animation-delay: 2.06259s; animation-duration: 6.17955s;"></div>
         <div class="particle" style="left: 1.1364%; animation-delay: 1.14613s; animation-duration: 7.7543s;"></div>
+        <div class="particle" style="left: 4.7422%; animation-delay: 6.17354s; animation-duration: 7.87454s;"></div>
+        <div class="particle" style="left: 21.739%; animation-delay: 6.01603s; animation-duration: 5.48763s;"></div>
+        <div class="particle" style="left: 0.437425%; animation-delay: 3.81761s; animation-duration: 5.65001s;"></div>
+        <div class="particle" style="left: 73.7087%; animation-delay: 0.494177s; animation-duration: 7.1125s;"></div>
+        <div class="particle" style="left: 44.962%; animation-delay: 2.3004s; animation-duration: 6.31265s;"></div>
+        <div class="particle" style="left: 54.2248%; animation-delay: 1.52863s; animation-duration: 5.77246s;"></div>
+        <div class="particle" style="left: 74.5242%; animation-delay: 7.49595s; animation-duration: 6.59135s;"></div>
+        <div class="particle" style="left: 91.7756%; animation-delay: 5.77552s; animation-duration: 5.23454s;"></div>
+        <div class="particle" style="left: 13.1762%; animation-delay: 5.68221s; animation-duration: 6.85418s;"></div>
+        <div class="particle" style="left: 2.29693%; animation-delay: 5.5279s; animation-duration: 7.32018s;"></div>
+        <div class="particle" style="left: 38.1679%; animation-delay: 2.7982s; animation-duration: 5.73839s;"></div>
+        <div class="particle" style="left: 34.8739%; animation-delay: 1.94568s; animation-duration: 5.67981s;"></div>
+        <div class="particle" style="left: 88.8341%; animation-delay: 3.60197s; animation-duration: 7.02768s;"></div>
+        <div class="particle" style="left: 73.9213%; animation-delay: 3.14808s; animation-duration: 7.85712s;"></div>
+        <div class="particle" style="left: 96.9937%; animation-delay: 7.50937s; animation-duration: 6.52117s;"></div>
+        <div class="particle" style="left: 39.1105%; animation-delay: 4.71039s; animation-duration: 6.14327s;"></div>
+        <div class="particle" style="left: 18.6326%; animation-delay: 1.72693s; animation-duration: 6.97118s;"></div>
+        <div class="particle" style="left: 32.361%; animation-delay: 0.512901s; animation-duration: 6.64158s;"></div>
+        <div class="particle" style="left: 21.7981%; animation-delay: 7.66741s; animation-duration: 6.12694s;"></div>
+        <div class="particle" style="left: 50.7831%; animation-delay: 1.37005s; animation-duration: 6.68747s;"></div>
+        <div class="particle" style="left: 8.92464%; animation-delay: 7.11924s; animation-duration: 7.13348s;"></div>
+        <div class="particle" style="left: 99.5444%; animation-delay: 2.58886s; animation-duration: 6.20867s;"></div>
+        <div class="particle" style="left: 71.2198%; animation-delay: 1.58841s; animation-duration: 7.6436s;"></div>
+        <div class="particle" style="left: 94.4446%; animation-delay: 1.47522s; animation-duration: 6.17137s;"></div>
+        <div class="particle" style="left: 54.594%; animation-delay: 5.67406s; animation-duration: 5.3632s;"></div>
+        <div class="particle" style="left: 26.2654%; animation-delay: 0.56194s; animation-duration: 6.97174s;"></div>
+        <div class="particle" style="left: 69.4511%; animation-delay: 7.23728s; animation-duration: 6.96356s;"></div>
+        <div class="particle" style="left: 29.7318%; animation-delay: 2.47357s; animation-duration: 5.37585s;"></div>
+        <div class="particle" style="left: 3.42386%; animation-delay: 4.62609s; animation-duration: 5.48645s;"></div>
+        <div class="particle" style="left: 92.9035%; animation-delay: 0.102495s; animation-duration: 5.20447s;"></div>
+        <div class="particle" style="left: 73.5576%; animation-delay: 7.07067s; animation-duration: 6.1699s;"></div>
+        <div class="particle" style="left: 53.5116%; animation-delay: 6.01571s; animation-duration: 7.13429s;"></div>
+        <div class="particle" style="left: 48.3211%; animation-delay: 6.77957s; animation-duration: 6.76628s;"></div>
+        <div class="particle" style="left: 73.7704%; animation-delay: 5.19779s; animation-duration: 7.47212s;"></div>
+        <div class="particle" style="left: 14.3212%; animation-delay: 6.25717s; animation-duration: 5.42699s;"></div>
+        <div class="particle" style="left: 28.1615%; animation-delay: 2.62707s; animation-duration: 5.27484s;"></div>
+        <div class="particle" style="left: 89.7057%; animation-delay: 6.47882s; animation-duration: 5.74599s;"></div>
+        <div class="particle" style="left: 32.6493%; animation-delay: 4.709s; animation-duration: 7.53207s;"></div>
+        <div class="particle" style="left: 11.5708%; animation-delay: 5.95907s; animation-duration: 6.14492s;"></div>
+        <div class="particle" style="left: 66.8533%; animation-delay: 2.19603s; animation-duration: 7.18547s;"></div>
+        <div class="particle" style="left: 73.9753%; animation-delay: 3.44501s; animation-duration: 6.76796s;"></div>
+        <div class="particle" style="left: 57.8843%; animation-delay: 7.39865s; animation-duration: 5.60297s;"></div>
+        <div class="particle" style="left: 68.9788%; animation-delay: 0.787468s; animation-duration: 6.37869s;"></div>
+        <div class="particle" style="left: 1.19919%; animation-delay: 7.95956s; animation-duration: 5.92839s;"></div>
+        <div class="particle" style="left: 11.1163%; animation-delay: 5.56797s; animation-duration: 5.75486s;"></div>
+        <div class="particle" style="left: 65.9277%; animation-delay: 2.40942s; animation-duration: 6.60534s;"></div>
+        <div class="particle" style="left: 13.3899%; animation-delay: 0.373138s; animation-duration: 7.03487s;"></div>
+        <div class="particle" style="left: 18.6521%; animation-delay: 5.11584s; animation-duration: 7.78961s;"></div>
+        <div class="particle" style="left: 42.1201%; animation-delay: 2.73373s; animation-duration: 7.52406s;"></div>
+        <div class="particle" style="left: 29.3851%; animation-delay: 2.94997s; animation-duration: 7.27802s;"></div>
     </div>
 
     <!-- Navigation -->
@@ -11154,7 +12562,8 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a id="homeBtn" href="#"
                         class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Home</a>
-                    <a id="questsBtn" href="#" class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Quests</a>
+                    <a id="questsBtn" href="#"
+                        class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Quests</a>
                     <div id="questsList" style="margin-top: 20px; font-weight: bold;"></div>
                     <a href="#"
                         class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Leaderboard</a>
@@ -11293,42 +12702,43 @@
         </div>
     </section>
     <!-- EcoLearn Chatbot Section -->
-<section class="py-16 relative overflow-hidden">
-    <div class="morphing-bg absolute inset-0 opacity-30"></div>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 class="text-6xl font-black text-white mb-8 text-center">EcoLearn Assistant 🤖</h2>
-        <p class="text-2xl text-gray-200 mb-12 text-center">
-            Ask me anything about environmental science, climate change, sustainability, and how to protect our planet!
-        </p>
+    <section class="py-16 relative overflow-hidden">
+        <div class="morphing-bg absolute inset-0 opacity-30"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-6xl font-black text-white mb-8 text-center">EcoLearn Assistant 🤖</h2>
+            <p class="text-2xl text-gray-200 mb-12 text-center">
+                Ask me anything about environmental science, climate change, sustainability, and how to protect our
+                planet!
+            </p>
 
-        <!-- EcoLearn Chatbot Container -->
-        <div class="elearn-chat-container">
-            <div class="elearn-chat-header">
-                <i class="fas fa-leaf"></i> EcoLearn Assistant
-            </div>
-            
-            <div class="elearn-chat-messages" id="elearnChatMessages">
-                <div class="elearn-message elearn-bot-message">
-                    Hi there! I'm your EcoLearn assistant. I can help answer your questions about environmental science, climate change, sustainability, and more. What would you like to learn about today?
-                </div>
-            </div>
-            
-            <div class="elearn-suggestions">
-                <button class="elearn-suggestion" onclick="elearnAskQuestion('What is climate change?')">What is climate change?</button>
-                <button class="elearn-suggestion" onclick="elearnAskQuestion('How can I reduce my carbon footprint?')">Reduce carbon footprint</button>
-                <button class="elearn-suggestion" onclick="elearnAskQuestion('What are renewable energy sources?')">Renewable energy</button>
-                <button class="elearn-suggestion" onclick="elearnAskQuestion('Why is biodiversity important?')">Importance of biodiversity</button>
-            </div>
-            
-            <div class="elearn-chat-input">
-                <input type="text" id="elearnUserInput" placeholder="Ask a question about environmental science..." onkeypress="elearnHandleKeyPress(event)">
-                <button id="elearnSendMessage" onclick="elearnSendMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
+           <!-- EcoLearn Chatbot Container -->
+<div class="elearn-chat-container">
+    <div class="elearn-chat-header">
+        <i class="fas fa-leaf"></i> EcoLearn Assistant
+    </div>
+
+    <div class="elearn-chat-messages" id="elearnChatMessages">
+        <div class="elearn-message elearn-bot-message">
+            Hi there! I'm your EcoLearn assistant. Ask me anything about environmental science, climate change, sustainability, and more.
         </div>
     </div>
-</section>
+
+    <div class="elearn-suggestions">
+        <button class="elearn-suggestion" onclick="elearnAskQuestion('What is climate change?')">What is climate change?</button>
+        <button class="elearn-suggestion" onclick="elearnAskQuestion('How can I reduce my carbon footprint?')">Reduce carbon footprint</button>
+        <button class="elearn-suggestion" onclick="elearnAskQuestion('What are renewable energy sources?')">Renewable energy</button>
+        <button class="elearn-suggestion" onclick="elearnAskQuestion('Why is biodiversity important?')">Importance of biodiversity</button>
+    </div>
+
+    <div class="elearn-chat-input">
+        <input type="text" id="elearnUserInput" placeholder="Ask a question about environmental science..." onkeypress="elearnHandleKeyPress(event)">
+        <button id="elearnSendMessage" onclick="elearnSendMessage()">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+    </section>
 
     <!-- Features Section -->
     <section class="py-10 relative">
@@ -11337,40 +12747,54 @@
                 <h2 class="text-6xl font-black text-white mb-6">🎮 Superpowers Unlocked</h2>
                 <p class="text-2xl text-gray-300">Experience the future of environmental education</p>
 
-    <!-- Inserted Mini-Quiz Widget -->
-<!-- Mini-Quiz / Daily Quest (Enhanced Multi-Question, API-backed) -->
-                    <div id="mini-quiz-card" class="card-3d bg-white/5 backdrop-blur-lg p-6 rounded-3xl mt-6 border border-white/10">
-                        <div class="flex items-center justify-between mb-3">
-                            <div>
-                                <h4 class="text-lg font-bold text-white">🔥 Daily Quest</h4>
-                                <div class="text-sm text-gray-400">5-6 questions • adaptive • +25 XP per correct</div>
-                            </div>
-                            <div class="text-sm text-green-300 font-semibold">+25 XP</div>
+                <!-- Inserted Mini-Quiz Widget -->
+                <!-- Mini-Quiz / Daily Quest (Enhanced Multi-Question, API-backed) -->
+                <div id="mini-quiz-card"
+                    class="card-3d bg-white/5 backdrop-blur-lg p-6 rounded-3xl mt-6 border border-white/10"
+                    style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <h4 class="text-lg font-bold text-white">🔥 Daily Quest</h4>
+                            <div class="text-sm text-gray-400">5-6 questions • adaptive • +25 XP per correct</div>
                         </div>
-
-                        <div id="quizBody">
-                            <div id="quizMeta" class="text-gray-300 mb-3">Loading questions...</div>
-                            <div id="questionCard" class="mb-3">
-                                <!-- Question and options will be injected here -->
-                            </div>
-
-                            <div class="flex items-center space-x-3 mt-3">
-                                <button id="miniQuizSubmit" type="button"
-                                    class="eco-gradient px-4 py-2 rounded-lg text-white font-semibold">Submit</button>
-                                <button id="miniQuizNext" type="button" class="hidden px-3 py-2 rounded-lg bg-white/3 text-gray-200">Next</button>
-                                <button id="miniQuizSkip" type="button"
-                                    class="px-3 py-2 rounded-lg bg-white/3 text-gray-200">Skip</button>
-                            </div>
-
-                            <div id="miniQuizResult" class="mt-3 text-sm text-gray-200 hidden" role="status" aria-live="polite"></div>
-                        </div>
-
-                        <div id="quizSummary" class="hidden mt-4 text-gray-200"></div>
-                        
+                        <div class="text-sm text-green-300 font-semibold">+25 XP</div>
                     </div>
 
-                    <script>
-                    (function(){
+                    <div id="quizBody">
+                        <div id="quizMeta" class="text-gray-300 mb-3"></div>
+                        <div id="questionCard" class="mb-3">
+                            <div class="text-sm text-gray-400 mb-2">Question 2 of 6</div>
+                            <div class="text-gray-200 mb-3 font-semibold">What is the name of Ruby Rose's weapon from
+                                RWBY?</div>
+                            <div class="space-y-2"><label class="flex items-center text-gray-200"><input type="radio"
+                                        name="mq" value="Crooked%20Scythe" class="mr-3"> Crooked Scythe</label><label
+                                    class="flex items-center text-gray-200"><input type="radio" name="mq"
+                                        value="Magnhild" class="mr-3"> Magnhild</label><label
+                                    class="flex items-center text-gray-200"><input type="radio" name="mq"
+                                        value="Thorned%20Rosebud" class="mr-3"> Thorned Rosebud</label><label
+                                    class="flex items-center text-gray-200"><input type="radio" name="mq"
+                                        value="Crescent%20Rose" class="mr-3"> Crescent Rose</label></div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 mt-3">
+                            <button id="miniQuizSubmit" type="button"
+                                class="eco-gradient px-4 py-2 rounded-lg text-white font-semibold">Submit</button>
+                            <button id="miniQuizNext" type="button"
+                                class="hidden px-3 py-2 rounded-lg bg-white/3 text-gray-200">Next</button>
+                            <button id="miniQuizSkip" type="button"
+                                class="px-3 py-2 rounded-lg bg-white/3 text-gray-200">Skip</button>
+                        </div>
+
+                        <div id="miniQuizResult" class="mt-3 text-sm text-gray-200 hidden" role="status"
+                            aria-live="polite"></div>
+                    </div>
+
+                    <div id="quizSummary" class="hidden mt-4 text-gray-200"></div>
+
+                </div>
+
+                <script>
+                    (function () {
                         // Utility: decode HTML entities from API responses
                         function decodeHTMLEntities(str) {
                             var txt = document.createElement('textarea');
@@ -11396,12 +12820,12 @@
                         const xpProgress = document.getElementById('xpProgress');
                         const maxEl = document.getElementById('maxXP');
 
-                        function parseNum(el){
-                            if(!el) return 0;
-                            return parseInt(el.textContent.replace(/[^0-9]/g,'')) || 0;
+                        function parseNum(el) {
+                            if (!el) return 0;
+                            return parseInt(el.textContent.replace(/[^0-9]/g, '')) || 0;
                         }
 
-                        function updateXP(add){
+                        function updateXP(add) {
                             const current = parseNum(xpEl);
                             const max = parseNum(maxEl) || 3000;
                             const next = current + add;
@@ -11448,27 +12872,27 @@
                         let index = 0;
                         let answers = []; // {qindex, chosen, correct, time}
 
-                        function saveProgress(){
-                            localStorage.setItem(QUIZ_KEY, JSON.stringify({answers: answers, timestamp: Date.now()}));
+                        function saveProgress() {
+                            localStorage.setItem(QUIZ_KEY, JSON.stringify({ answers: answers, timestamp: Date.now() }));
                         }
 
-                        function loadProgress(){
-                            try{
+                        function loadProgress() {
+                            try {
                                 const raw = localStorage.getItem(QUIZ_KEY);
-                                if(!raw) return null;
+                                if (!raw) return null;
                                 return JSON.parse(raw);
-                            }catch(e){ return null; }
+                            } catch (e) { return null; }
                         }
 
-                        function shuffle(arr){
-                            for(let i = arr.length -1; i>0; i--){
-                                const j = Math.floor(Math.random()*(i+1));
+                        function shuffle(arr) {
+                            for (let i = arr.length - 1; i > 0; i--) {
+                                const j = Math.floor(Math.random() * (i + 1));
                                 [arr[i], arr[j]] = [arr[j], arr[i]];
                             }
                             return arr;
                         }
 
-                        function renderQuestion(qObj, qNum){
+                        function renderQuestion(qObj, qNum) {
                             // Build question HTML
                             const qText = decodeHTMLEntities(qObj.question || qObj['question']);
                             let opts = [];
@@ -11477,7 +12901,7 @@
                             opts = [correct].concat(incorrect);
                             shuffle(opts);
                             const html = [];
-                            html.push('<div class="text-sm text-gray-400 mb-2">Question ' + (qNum+1) + ' of ' + questions.length + '</div>');
+                            html.push('<div class="text-sm text-gray-400 mb-2">Question ' + (qNum + 1) + ' of ' + questions.length + '</div>');
                             html.push('<div class="text-gray-200 mb-3 font-semibold">' + qText + '</div>');
                             html.push('<div class="space-y-2">');
                             opts.forEach((o, i) => {
@@ -11490,7 +12914,7 @@
                             result.classList.add('hidden');
                         }
 
-                        function showSummary(){
+                        function showSummary() {
                             card.querySelector('#quizBody').classList.add('hidden');
                             summary.classList.remove('hidden');
                             const correctCount = answers.filter(a => a.correct).length;
@@ -11502,8 +12926,8 @@
                                 const q = questions[a.qindex];
                                 const qText = decodeHTMLEntities(q.question || q['question']);
                                 s += '<div class="p-2 bg-white/3 rounded-md">';
-                                s += '<div class="font-semibold text-gray-100">' + (i+1) + '. ' + qText + '</div>';
-                                s += '<div class="text-xs mt-1 ' + (a.correct? 'text-green-300':'text-red-400') + '">Your answer: ' + (a.chosen) + (a.correct? ' ✓':' ✗') + '</div>';
+                                s += '<div class="font-semibold text-gray-100">' + (i + 1) + '. ' + qText + '</div>';
+                                s += '<div class="text-xs mt-1 ' + (a.correct ? 'text-green-300' : 'text-red-400') + '">Your answer: ' + (a.chosen) + (a.correct ? ' ✓' : ' ✗') + '</div>';
                                 s += '<div class="text-xs text-gray-400">Correct: ' + (decodeHTMLEntities(q.correct_answer || q['correct_answer'])) + '</div>';
                                 s += '</div>';
                             });
@@ -11513,20 +12937,20 @@
 
                             // wire restart
                             const restart = document.getElementById('restartQuiz');
-                            restart && restart.addEventListener('click', function(){
+                            restart && restart.addEventListener('click', function () {
                                 localStorage.removeItem(QUIZ_KEY);
                                 location.reload();
                             });
                         }
 
-                        function processAnswer(chosenVal){
+                        function processAnswer(chosenVal) {
                             const raw = decodeURIComponent(chosenVal);
                             const currentQ = questions[index];
                             const correct = decodeHTMLEntities(currentQ.correct_answer || currentQ['correct_answer']);
                             const isCorrect = raw === correct;
-                            answers.push({qindex: index, chosen: raw, correct: isCorrect, time: Date.now()});
+                            answers.push({ qindex: index, chosen: raw, correct: isCorrect, time: Date.now() });
                             saveProgress();
-                            if(isCorrect){
+                            if (isCorrect) {
                                 updateXP(XP_PER_CORRECT);
                                 result.textContent = 'Nice! +25 XP. Keep going 🌱';
                                 result.classList.remove('hidden');
@@ -11543,9 +12967,9 @@
                             skipBtn.classList.add('hidden');
                         }
 
-                        submitBtn && submitBtn.addEventListener('click', function(){
+                        submitBtn && submitBtn.addEventListener('click', function () {
                             const chosen = document.querySelector('input[name="mq"]:checked');
-                            if(!chosen){
+                            if (!chosen) {
                                 result.textContent = 'Please select an answer.';
                                 result.classList.remove('hidden');
                                 return;
@@ -11553,9 +12977,9 @@
                             processAnswer(chosen.value);
                         });
 
-                        nextBtn && nextBtn.addEventListener('click', function(){
+                        nextBtn && nextBtn.addEventListener('click', function () {
                             index++;
-                            if(index >= questions.length){
+                            if (index >= questions.length) {
                                 showSummary();
                                 return;
                             }
@@ -11565,22 +12989,22 @@
                             skipBtn.classList.remove('hidden');
                         });
 
-                        skipBtn && skipBtn.addEventListener('click', function(){
+                        skipBtn && skipBtn.addEventListener('click', function () {
                             // record skip as incorrect with chosen = 'SKIPPED'
-                            answers.push({qindex: index, chosen: 'SKIPPED', correct: false, time: Date.now()});
+                            answers.push({ qindex: index, chosen: 'SKIPPED', correct: false, time: Date.now() });
                             saveProgress();
                             index++;
-                            if(index >= questions.length){
+                            if (index >= questions.length) {
                                 showSummary();
                                 return;
                             }
                             renderQuestion(questions[index], index);
                         });
 
-                        function startWithQuestions(qs){
+                        function startWithQuestions(qs) {
                             questions = qs.slice(0, TOTAL_QUESTIONS);
                             // ensure at least 5 questions to show; if API returns less, fallback merged with local
-                            if(questions.length < 5){
+                            if (questions.length < 5) {
                                 const needed = 5 - questions.length;
                                 questions = questions.concat(localQuestions.slice(0, needed));
                             }
@@ -11591,12 +13015,12 @@
                             meta.textContent = 'Answer the quick quiz — questions change every load.';
                             // load prior progress if any
                             const prior = loadProgress();
-                            if(prior && prior.answers && prior.answers.length > 0){
+                            if (prior && prior.answers && prior.answers.length > 0) {
                                 // if prior exists, show summary of prior attempt and option to restart
                                 answers = prior.answers;
                                 meta.textContent = 'You have a saved attempt. Continue or restart.';
                                 // show first unattempted question or summary
-                                if(answers.length >= questions.length){
+                                if (answers.length >= questions.length) {
                                     showSummary();
                                     return;
                                 } else {
@@ -11611,7 +13035,7 @@
 
                         // Try fetching from OpenTDB; on failure, use localQuestions
                         fetch(apiUrl).then(resp => resp.json()).then(data => {
-                            if(data && data.results && data.results.length){
+                            if (data && data.results && data.results.length) {
                                 startWithQuestions(data.results);
                             } else {
                                 startWithQuestions(localQuestions);
@@ -11622,7 +13046,7 @@
                         });
 
                     })();
-                    </script>
+                </script>
 
 
             </div>
@@ -12437,116 +13861,180 @@
         */
 
         // EcoLearn Chatbot functionality
-const elearnKnowledgeBase = {
-    "climate change": "Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but human activities have been the main driver of climate change since the 1800s, primarily due to the burning of fossil fuels (like coal, oil, and gas) which produces heat-trapping gases.",
-    "global warming": "Global warming is the long-term heating of Earth's surface observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth's atmosphere.",
-    "renewable energy": "Renewable energy comes from natural sources that are constantly replenished, such as sunlight, wind, water (hydropower), geothermal heat, and biomass. Unlike fossil fuels, renewable energy sources produce little to no greenhouse gas emissions, making them essential for combating climate change.",
-    "carbon footprint": "Your carbon footprint is the total amount of greenhouse gases (including carbon dioxide and methane) that are generated by your actions. You can reduce it by using public transportation, eating less meat, reducing energy consumption at home, and supporting renewable energy sources.",
-    "biodiversity": "Biodiversity refers to the variety of life on Earth at all its levels, from genes to ecosystems. It encompasses evolutionary, ecological, and cultural processes that sustain life. Biodiversity is important because it supports ecosystem productivity and provides resources for medicine, industry, and agriculture.",
-    "recycling": "Recycling is the process of converting waste materials into new materials and objects. It helps reduce the consumption of fresh raw materials, energy usage, air pollution (from incineration), and water pollution (from landfilling) by reducing the need for conventional waste disposal.",
-    "deforestation": "Deforestation is the purposeful clearing of forested land. Throughout history and into modern times, forests have been razed to make space for agriculture and animal grazing, and to obtain wood for fuel, manufacturing, and construction. Deforestation has greatly altered landscapes around the world.",
-    "sustainability": "Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism — it's about balancing three pillars: environmental, social, and economic.",
-    "plastic pollution": "Plastic pollution is the accumulation of plastic objects and particles in the Earth's environment that adversely affects wildlife, wildlife habitat, and humans. Plastics that act as pollutants are categorized by size into micro-, meso-, or macro debris. Reducing single-use plastics and improving recycling systems are key solutions.",
-    "ocean acidification": "Ocean acidification refers to a reduction in the pH of the ocean over an extended period of time, caused primarily by uptake of carbon dioxide (CO2) from the atmosphere. This makes it more difficult for marine organisms such as corals and shellfish to build their skeletons and shells."
-};
+        const elearnKnowledgeBase = {
+            "climate change": "Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but human activities have been the main driver of climate change since the 1800s, primarily due to the burning of fossil fuels (like coal, oil, and gas) which produces heat-trapping gases.",
+            "global warming": "Global warming is the long-term heating of Earth's surface observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth's atmosphere.",
+            "renewable energy": "Renewable energy comes from natural sources that are constantly replenished, such as sunlight, wind, water (hydropower), geothermal heat, and biomass. Unlike fossil fuels, renewable energy sources produce little to no greenhouse gas emissions, making them essential for combating climate change.",
+            "carbon footprint": "Your carbon footprint is the total amount of greenhouse gases (including carbon dioxide and methane) that are generated by your actions. You can reduce it by using public transportation, eating less meat, reducing energy consumption at home, and supporting renewable energy sources.",
+            "biodiversity": "Biodiversity refers to the variety of life on Earth at all its levels, from genes to ecosystems. It encompasses evolutionary, ecological, and cultural processes that sustain life. Biodiversity is important because it supports ecosystem productivity and provides resources for medicine, industry, and agriculture.",
+            "recycling": "Recycling is the process of converting waste materials into new materials and objects. It helps reduce the consumption of fresh raw materials, energy usage, air pollution (from incineration), and water pollution (from landfilling) by reducing the need for conventional waste disposal.",
+            "deforestation": "Deforestation is the purposeful clearing of forested land. Throughout history and into modern times, forests have been razed to make space for agriculture and animal grazing, and to obtain wood for fuel, manufacturing, and construction. Deforestation has greatly altered landscapes around the world.",
+            "sustainability": "Sustainability means meeting our own needs without compromising the ability of future generations to meet their own needs. In addition to natural resources, we also need social and economic resources. Sustainability is not just environmentalism — it's about balancing three pillars: environmental, social, and economic.",
+            "plastic pollution": "Plastic pollution is the accumulation of plastic objects and particles in the Earth's environment that adversely affects wildlife, wildlife habitat, and humans. Plastics that act as pollutants are categorized by size into micro-, meso-, or macro debris. Reducing single-use plastics and improving recycling systems are key solutions.",
+            "ocean acidification": "Ocean acidification refers to a reduction in the pH of the ocean over an extended period of time, caused primarily by uptake of carbon dioxide (CO2) from the atmosphere. This makes it more difficult for marine organisms such as corals and shellfish to build their skeletons and shells."
+        };
 
-// Function to handle sending a message
-function elearnSendMessage() {
-    const userInput = document.getElementById('elearnUserInput');
-    const message = userInput.value.trim();
-    
-    if (message) {
-        elearnAddMessage(message, 'user');
-        userInput.value = '';
-        
-        // Show typing indicator
-        elearnShowTypingIndicator();
-        
-        // Get bot response after a short delay
-        setTimeout(() => {
-            elearnRemoveTypingIndicator();
-            const botResponse = elearnGenerateResponse(message);
-            elearnAddMessage(botResponse, 'bot');
-        }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
-    }
-}
+        // Function to handle sending a message
+        function elearnSendMessage() {
+            const userInput = document.getElementById('elearnUserInput');
+            const message = userInput.value.trim();
 
-// Function to handle asking a suggested question
-function elearnAskQuestion(question) {
-    document.getElementById('elearnUserInput').value = question;
-    elearnSendMessage();
-}
+            if (message) {
+                elearnAddMessage(message, 'user');
+                userInput.value = '';
 
-// Function to handle Enter key press
-function elearnHandleKeyPress(event) {
-    if (event.key === 'Enter') {
-        elearnSendMessage();
-    }
-}
+                // Show typing indicator
+                elearnShowTypingIndicator();
 
-// Function to add a message to the chat
-function elearnAddMessage(text, sender) {
-    const chatMessages = document.getElementById('elearnChatMessages');
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('elearn-message');
-    messageDiv.classList.add('elearn-' + sender + '-message');
-    messageDiv.textContent = text;
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
+                // Get bot response after a short delay
+                setTimeout(() => {
+                    elearnRemoveTypingIndicator();
+                    const botResponse = elearnGenerateResponse(message);
+                    elearnAddMessage(botResponse, 'bot');
+                }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }
+        }
 
-// Function to show typing indicator
-function elearnShowTypingIndicator() {
-    const chatMessages = document.getElementById('elearnChatMessages');
-    const typingDiv = document.createElement('div');
-    typingDiv.classList.add('elearn-typing-indicator');
-    typingDiv.id = 'elearnTypingIndicator';
-    typingDiv.innerHTML = `
+        // Function to handle asking a suggested question
+        function elearnAskQuestion(question) {
+            document.getElementById('elearnUserInput').value = question;
+            elearnSendMessage();
+        }
+
+        // Function to handle Enter key press
+        function elearnHandleKeyPress(event) {
+            if (event.key === 'Enter') {
+                elearnSendMessage();
+            }
+        }
+
+        // Function to add a message to the chat
+        function elearnAddMessage(text, sender) {
+            const chatMessages = document.getElementById('elearnChatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('elearn-message');
+            messageDiv.classList.add('elearn-' + sender + '-message');
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Function to show typing indicator
+        function elearnShowTypingIndicator() {
+            const chatMessages = document.getElementById('elearnChatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('elearn-typing-indicator');
+            typingDiv.id = 'elearnTypingIndicator';
+            typingDiv.innerHTML = `
         <div class="elearn-typing-dot"></div>
         <div class="elearn-typing-dot"></div>
         <div class="elearn-typing-dot"></div>
     `;
-    chatMessages.appendChild(typingDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-// Function to remove typing indicator
-function elearnRemoveTypingIndicator() {
-    const typingIndicator = document.getElementById('elearnTypingIndicator');
-    if (typingIndicator) {
-        typingIndicator.remove();
-    }
-}
-
-// Function to generate a response based on user input
-function elearnGenerateResponse(userMessage) {
-    const lowerCaseMessage = userMessage.toLowerCase();
-    
-    // Check if the message contains any keywords from our knowledge base
-    for (const [keyword, response] of Object.entries(elearnKnowledgeBase)) {
-        if (lowerCaseMessage.includes(keyword)) {
-            return response;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
-    }
-    
-    // Default responses for unrecognized queries
-    const defaultResponses = [
-        "That's an interesting question about the environment. Could you provide more details?",
-        "I'm designed to help with environmental science topics. Could you ask about climate, ecosystems, sustainability, or related subjects?",
-        "I'm not sure about that specific topic. Try asking me about climate change, recycling, renewable energy, or biodiversity!",
-        "As an EcoLearn assistant, I specialize in environmental education. What aspect of ecology or sustainability are you curious about?",
-        "I don't have information about that specific topic yet. Try asking me about environmental issues, conservation, or sustainable practices!"
-    ];
-    
-    return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-}
 
-// Add some initial messages to demonstrate the chatbot
-setTimeout(() => {
-    elearnAddMessage("I can answer questions about climate change, renewable energy, recycling, biodiversity, and many other environmental topics. Try asking me something!", 'bot');
-}, 1500);
+        // Function to remove typing indicator
+        function elearnRemoveTypingIndicator() {
+            const typingIndicator = document.getElementById('elearnTypingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Function to generate a response based on user input
+        function elearnGenerateResponse(userMessage) {
+            const lc = (userMessage || '').toLowerCase().trim();
+
+            // 1) If the knowledge base has a matching keyword (precise environmental answers), return that first
+            if (typeof elearnKnowledgeBase === 'object') {
+                for (const [keyword, response] of Object.entries(elearnKnowledgeBase)) {
+                    if (lc.includes(keyword)) return response;
+                }
+            }
+
+            // 2) Personas & quick mode commands (optional)
+            if (lc.startsWith('mode:') || lc.startsWith('persona:')) {
+                const p = lc.split(':')[1]?.trim();
+                if (p) return `Persona switched to: ${p}. (Demo) I will answer in that style.`;
+                return "Persona commands look like: 'mode: gaming' or 'persona: teacher'.";
+            }
+
+            // 3) Multi-domain reply pools (education, gaming, environment, fun)
+            const educationReplies = [
+                "📘 Study tip: Break big topics into 20–30 minute chunks and review with short quizzes.",
+                "📝 Want an example problem? Tell me the topic and I'll give a quick practice question.",
+                "🔁 Spaced repetition helps a lot — revisit small bits regularly rather than cramming.",
+                "🧠 Try explaining the concept to a friend (or your rubber duck!) — teaching helps memory."
+            ];
+
+            const gamingReplies = [
+                "🎮 Quick gaming fact: Daily quests and small rewards are what keep players coming back.",
+                "⚡ Pro tip: Treat learning like a game — small wins, levels, and visible progress.",
+                "🏆 Want a fun challenge? Try turning your next study session into a 20-min speedrun.",
+                "🔥 Gaming advice: Focus on progression systems (clear goals + visible rewards)."
+            ];
+
+            const environmentReplies = [
+                "🌱 Small step: Switching a single bulb to LED can cut home lighting energy by ~80%.",
+                "🌍 Fun fact: Planting trees helps absorb CO₂ — even small actions add up across many people.",
+                "♻️ Recycling basics: Clean plastic and separate wet waste — small habits scale.",
+                "💡 Want a sustainable project idea for students? I can suggest one based on grade level."
+            ];
+
+            const funReplies = [
+                "😂 Joke: Why did the computer study for exams? It wanted to be a little bit smarter!",
+                "✨ Motivation: Every small step adds up. Today’s tiny action = tomorrow’s big impact.",
+                "🎵 Random fact: Short breaks with music can improve focus during study sessions.",
+                "😎 Mood booster: You’re doing great — keep shipping small wins!"
+            ];
+
+            // keyword-based routing to make the bot feel relevant
+            const eduWords = ['study', 'learn', 'exam', 'homework', 'revision', 'explain', 'teach', 'assignment', 'practice', 'problem'];
+            const gameWords = ['game', 'gaming', 'level', 'quest', 'xp', 'streak', 'badge', 'play', 'boss', 'loot'];
+            const envWords = ['climate', 'eco', 'environment', 'biodiversity', 'recycle', 'sustain', 'carbon', 'co2', 'pollution', 'renewable'];
+
+            function containsAny(list) { return list.some(w => lc.includes(w)); }
+
+            let pool = null;
+            if (containsAny(eduWords)) pool = educationReplies;
+            else if (containsAny(gameWords)) pool = gamingReplies;
+            else if (containsAny(envWords)) pool = environmentReplies;
+            else {
+                // If nothing obvious, randomly pick a category to keep replies varied
+                const all = [educationReplies, gamingReplies, environmentReplies, funReplies];
+                pool = all[Math.floor(Math.random() * all.length)];
+            }
+
+            // small chance to ask a short follow-up question (makes the bot feel interactive)
+            if (Math.random() < 0.12) {
+                const followUps = [
+                    "Do you want a short tip or a step-by-step explanation?",
+                    "Should I give an example or a quick definition?",
+                    "Do you want a practice question or a quick summary?"
+                ];
+                return followUps[Math.floor(Math.random() * followUps.length)];
+            }
+
+            // pick a reply and, if appropriate, slightly personalize it
+            const reply = pool[Math.floor(Math.random() * pool.length)];
+
+            // If user asked a playful or single-word chat like 'hi' or 'hello', be friendly
+            if (['hi', 'hello', 'hey', 'yo', 'sup', 'hola'].includes(lc)) {
+                return "Hey! I'm EcoLearn — I can help with study tips, eco-facts, gaming trivia, and more. Try: 'Give me a study tip' or 'Tell me a gaming fact'.";
+            }
+
+            return reply;
+        }
+
+        // Add some initial messages to demonstrate the chatbot
+        setTimeout(() => {
+            elearnAddMessage("I can answer questions about climate change, renewable energy, recycling, biodiversity, and many other environmental topics. Try asking me something!", 'bot');
+        }, 1500);
     </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97fa9749459cf648',t:'MTc1Nzk2NTE3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <iframe height="1" width="1"
+        style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
     <iframe height="1" width="1"
         style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><iframe height="1"
         width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><iframe
@@ -12826,63 +14314,57 @@ setTimeout(() => {
         }
         // ]]>
     </script>
-    <script>
-document.getElementById("homeBtn").addEventListener("click", async (e) => {
-  e.preventDefault(); // prevent page from reloading
-  try {
-    const res = await fetch("http://localhost:5000/"); // call backend root route
-    const text = await res.text();
-    alert(text); // shows: "✅ Welcome! Your backend is running!"
-  } catch (err) {
-    console.error("Error fetching home:", err);
-  }
-});
-</script>
-<!-- Modal for Quests -->
-<div id="questsModal" class="modal">
-  <div class="modal-content">
-    <h3>Available Quests</h3>
-    <div id="questsList"></div>
-    <button class="close-btn" id="closeModal">OK</button>
-  </div>
-</div>
 <script>
-  const questsBtn = document.getElementById("questsBtn");
-  const modal = document.getElementById("questsModal");
-  const questsList = document.getElementById("questsList");
-  const closeModal = document.getElementById("closeModal");
+const chatContainer = document.getElementById('elearnChatMessages');
+const userInput = document.getElementById('elearnUserInput');
 
-  // Open modal and fetch quests
-  questsBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
+async function elearnSendMessage(messageFromButton = null) {
+    const message = messageFromButton || userInput.value.trim();
+    if (!message) return;
+
+    // Display user message
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.classList.add('elearn-message', 'elearn-user-message');
+    userMsgDiv.textContent = message;
+    chatContainer.appendChild(userMsgDiv);
+    userInput.value = '';
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
     try {
-      const res = await fetch("http://localhost:5000/api/quests");
-      const data = await res.json();
+        // Call your backend GPT endpoint
+        const response = await fetch('https://ai-backend-esjp.onrender.com/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+        const data = await response.json();
 
-      questsList.innerHTML = "";
-      data.quests.forEach(q => {
-        const div = document.createElement("div");
-        div.className = "quest";
-        div.innerHTML = `<strong>${q.title}</strong> - ${q.points} Points<br>${q.description}`;
-        questsList.appendChild(div);
-      });
+        // Display AI response
+        const botMsgDiv = document.createElement('div');
+        botMsgDiv.classList.add('elearn-message', 'elearn-bot-message');
+        botMsgDiv.textContent = data.reply;
+        chatContainer.appendChild(botMsgDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
 
-      modal.style.display = "block";
     } catch (err) {
-      questsList.innerHTML = "❌ Could not load quests!";
-      modal.style.display = "block";
+        console.error(err);
+        const errorDiv = document.createElement('div');
+        errorDiv.classList.add('elearn-message', 'elearn-bot-message');
+        errorDiv.style.color = 'red';
+        errorDiv.textContent = "Sorry, something went wrong!";
+        chatContainer.appendChild(errorDiv);
     }
-  });
+}
 
-  // Close modal
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+function elearnHandleKeyPress(event) {
+    if (event.key === 'Enter') elearnSendMessage();
+}
 
-  // Close modal if clicking outside
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
+function elearnAskQuestion(question) {
+    elearnSendMessage(question);
+}
 </script>
+
 </body>
+
 </html>
