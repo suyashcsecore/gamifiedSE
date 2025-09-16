@@ -1,0 +1,1088 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLearn - Gamified Environmental Education Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .eco-gradient {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .purple-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .glow {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .eco-glow {
+            box-shadow: 0 0 30px rgba(56, 239, 125, 0.3);
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px #38ef7d, 0 0 20px #38ef7d, 0 0 30px #38ef7d;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #38ef7d;
+            border-radius: 50%;
+            animation: particle-float 8s infinite linear;
+        }
+        
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid #38ef7d;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #38ef7d; }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px #667eea; }
+            to { box-shadow: 0 0 40px #667eea, 0 0 60px #667eea; }
+        }
+        
+        .morphing-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #11998e, #38ef7d);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-50{z-index:50}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-3{margin-right:0.75rem}.mt-12{margin-top:3rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-20{height:5rem}.h-4{height:1rem}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-20{width:5rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-blue-500\/30{border-color:rgb(59 130 246 / 0.3)}.border-green-500\/30{border-color:rgb(34 197 94 / 0.3)}.border-orange-500\/30{border-color:rgb(249 115 22 / 0.3)}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-purple-400\/30{border-color:rgb(192 132 252 / 0.3)}.border-purple-500\/30{border-color:rgb(168 85 247 / 0.3)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-yellow-500\/30{border-color:rgb(234 179 8 / 0.3)}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-blue-500\/20{background-color:rgb(59 130 246 / 0.2)}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-green-500\/20{background-color:rgb(34 197 94 / 0.2)}.bg-purple-500\/20{background-color:rgb(168 85 247 / 0.2)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-yellow-500\/20{background-color:rgb(234 179 8 / 0.2)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-500\/20{--tw-gradient-from:rgb(59 130 246 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/10{--tw-gradient-from:rgb(34 197 94 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/20{--tw-gradient-from:rgb(34 197 94 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-500\/20{--tw-gradient-from:rgb(249 115 22 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(249 115 22 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500\/20{--tw-gradient-from:rgb(168 85 247 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgb(96 165 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-300{--tw-gradient-from:#d1d5db var(--tw-gradient-from-position);--tw-gradient-to:rgb(209 213 219 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-400{--tw-gradient-from:#4ade80 var(--tw-gradient-from-position);--tw-gradient-to:rgb(74 222 128 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-400{--tw-gradient-from:#fb923c var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 146 60 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-400{--tw-gradient-from:#facc15 var(--tw-gradient-from-position);--tw-gradient-to:rgb(250 204 21 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-blue-500\/10{--tw-gradient-to:rgb(59 130 246 / 0.1) var(--tw-gradient-to-position)}.to-cyan-600\/20{--tw-gradient-to:rgb(8 145 178 / 0.2) var(--tw-gradient-to-position)}.to-emerald-600\/20{--tw-gradient-to:rgb(5 150 105 / 0.2) var(--tw-gradient-to-position)}.to-pink-500{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.to-pink-500\/20{--tw-gradient-to:rgb(236 72 153 / 0.2) var(--tw-gradient-to-position)}.to-pink-600\/20{--tw-gradient-to:rgb(219 39 119 / 0.2) var(--tw-gradient-to-position)}.to-red-500\/20{--tw-gradient-to:rgb(239 68 68 / 0.2) var(--tw-gradient-to-position)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.to-gray-500{--tw-gradient-to:#6b7280 var(--tw-gradient-to-position)}.to-green-600{--tw-gradient-to:#16a34a var(--tw-gradient-to-position)}.to-orange-600{--tw-gradient-to:#ea580c var(--tw-gradient-to-position)}.to-yellow-600{--tw-gradient-to:#ca8a04 var(--tw-gradient-to-position)}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-orange-300{--tw-text-opacity:1;color:rgb(253 186 116 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.placeholder-gray-400::placeholder{--tw-placeholder-opacity:1;color:rgb(156 163 175 / var(--tw-placeholder-opacity, 1))}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-300{transition-duration:300ms}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-blue-400\/50:hover{border-color:rgb(96 165 250 / 0.5)}.hover\:border-green-400\/50:hover{border-color:rgb(74 222 128 / 0.5)}.hover\:border-purple-400\/50:hover{border-color:rgb(192 132 252 / 0.5)}.hover\:border-white\/20:hover{border-color:rgb(255 255 255 / 0.2)}.hover\:bg-purple-400:hover{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.hover\:text-green-400:hover{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-blue-400:hover{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.focus\:border-green-400:focus{--tw-border-opacity:1;border-color:rgb(74 222 128 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-8xl{font-size:6rem;line-height:1}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-50{z-index:50}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-3{margin-right:0.75rem}.mt-12{margin-top:3rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-20{height:5rem}.h-4{height:1rem}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-20{width:5rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-blue-500\/30{border-color:rgb(59 130 246 / 0.3)}.border-green-500\/30{border-color:rgb(34 197 94 / 0.3)}.border-orange-500\/30{border-color:rgb(249 115 22 / 0.3)}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-purple-400\/30{border-color:rgb(192 132 252 / 0.3)}.border-purple-500\/30{border-color:rgb(168 85 247 / 0.3)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-yellow-500\/30{border-color:rgb(234 179 8 / 0.3)}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-blue-500\/20{background-color:rgb(59 130 246 / 0.2)}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-green-500\/20{background-color:rgb(34 197 94 / 0.2)}.bg-purple-500\/20{background-color:rgb(168 85 247 / 0.2)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-yellow-500\/20{background-color:rgb(234 179 8 / 0.2)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgb(96 165 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-500\/20{--tw-gradient-from:rgb(59 130 246 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-300{--tw-gradient-from:#d1d5db var(--tw-gradient-from-position);--tw-gradient-to:rgb(209 213 219 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-400{--tw-gradient-from:#4ade80 var(--tw-gradient-from-position);--tw-gradient-to:rgb(74 222 128 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/10{--tw-gradient-from:rgb(34 197 94 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/20{--tw-gradient-from:rgb(34 197 94 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-400{--tw-gradient-from:#fb923c var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 146 60 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-500\/20{--tw-gradient-from:rgb(249 115 22 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(249 115 22 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500\/20{--tw-gradient-from:rgb(168 85 247 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-400{--tw-gradient-from:#facc15 var(--tw-gradient-from-position);--tw-gradient-to:rgb(250 204 21 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-blue-500\/10{--tw-gradient-to:rgb(59 130 246 / 0.1) var(--tw-gradient-to-position)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.to-cyan-600\/20{--tw-gradient-to:rgb(8 145 178 / 0.2) var(--tw-gradient-to-position)}.to-emerald-600\/20{--tw-gradient-to:rgb(5 150 105 / 0.2) var(--tw-gradient-to-position)}.to-gray-500{--tw-gradient-to:#6b7280 var(--tw-gradient-to-position)}.to-green-600{--tw-gradient-to:#16a34a var(--tw-gradient-to-position)}.to-orange-600{--tw-gradient-to:#ea580c var(--tw-gradient-to-position)}.to-pink-500{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.to-pink-500\/20{--tw-gradient-to:rgb(236 72 153 / 0.2) var(--tw-gradient-to-position)}.to-pink-600\/20{--tw-gradient-to:rgb(219 39 119 / 0.2) var(--tw-gradient-to-position)}.to-red-500\/20{--tw-gradient-to:rgb(239 68 68 / 0.2) var(--tw-gradient-to-position)}.to-yellow-600{--tw-gradient-to:#ca8a04 var(--tw-gradient-to-position)}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-orange-300{--tw-text-opacity:1;color:rgb(253 186 116 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.placeholder-gray-400::placeholder{--tw-placeholder-opacity:1;color:rgb(156 163 175 / var(--tw-placeholder-opacity, 1))}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-300{transition-duration:300ms}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-blue-400\/50:hover{border-color:rgb(96 165 250 / 0.5)}.hover\:border-green-400\/50:hover{border-color:rgb(74 222 128 / 0.5)}.hover\:border-purple-400\/50:hover{border-color:rgb(192 132 252 / 0.5)}.hover\:border-white\/20:hover{border-color:rgb(255 255 255 / 0.2)}.hover\:bg-purple-400:hover{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:text-blue-400:hover{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.hover\:text-green-400:hover{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-green-400:focus{--tw-border-opacity:1;border-color:rgb(74 222 128 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-8xl{font-size:6rem;line-height:1}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-50{z-index:50}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-3{margin-right:0.75rem}.mt-12{margin-top:3rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-20{height:5rem}.h-4{height:1rem}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-20{width:5rem}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-8 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem * var(--tw-space-x-reverse));margin-left:calc(2rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-blue-500\/30{border-color:rgb(59 130 246 / 0.3)}.border-green-500\/30{border-color:rgb(34 197 94 / 0.3)}.border-orange-500\/30{border-color:rgb(249 115 22 / 0.3)}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-purple-400\/30{border-color:rgb(192 132 252 / 0.3)}.border-purple-500\/30{border-color:rgb(168 85 247 / 0.3)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-yellow-500\/30{border-color:rgb(234 179 8 / 0.3)}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-blue-500\/20{background-color:rgb(59 130 246 / 0.2)}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-green-500\/20{background-color:rgb(34 197 94 / 0.2)}.bg-purple-500\/20{background-color:rgb(168 85 247 / 0.2)}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.bg-yellow-500\/20{background-color:rgb(234 179 8 / 0.2)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgb(96 165 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-500\/20{--tw-gradient-from:rgb(59 130 246 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-gray-300{--tw-gradient-from:#d1d5db var(--tw-gradient-from-position);--tw-gradient-to:rgb(209 213 219 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-400{--tw-gradient-from:#4ade80 var(--tw-gradient-from-position);--tw-gradient-to:rgb(74 222 128 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/10{--tw-gradient-from:rgb(34 197 94 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-green-500\/20{--tw-gradient-from:rgb(34 197 94 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(34 197 94 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-400{--tw-gradient-from:#fb923c var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 146 60 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-orange-500\/20{--tw-gradient-from:rgb(249 115 22 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(249 115 22 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500\/20{--tw-gradient-from:rgb(168 85 247 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-400{--tw-gradient-from:#facc15 var(--tw-gradient-from-position);--tw-gradient-to:rgb(250 204 21 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-blue-500\/10{--tw-gradient-to:rgb(59 130 246 / 0.1) var(--tw-gradient-to-position)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.to-cyan-600\/20{--tw-gradient-to:rgb(8 145 178 / 0.2) var(--tw-gradient-to-position)}.to-emerald-600\/20{--tw-gradient-to:rgb(5 150 105 / 0.2) var(--tw-gradient-to-position)}.to-gray-500{--tw-gradient-to:#6b7280 var(--tw-gradient-to-position)}.to-green-600{--tw-gradient-to:#16a34a var(--tw-gradient-to-position)}.to-orange-600{--tw-gradient-to:#ea580c var(--tw-gradient-to-position)}.to-pink-500{--tw-gradient-to:#ec4899 var(--tw-gradient-to-position)}.to-pink-500\/20{--tw-gradient-to:rgb(236 72 153 / 0.2) var(--tw-gradient-to-position)}.to-pink-600\/20{--tw-gradient-to:rgb(219 39 119 / 0.2) var(--tw-gradient-to-position)}.to-red-500\/20{--tw-gradient-to:rgb(239 68 68 / 0.2) var(--tw-gradient-to-position)}.to-yellow-600{--tw-gradient-to:#ca8a04 var(--tw-gradient-to-position)}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-12{padding-left:3rem;padding-right:3rem}.px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.text-orange-300{--tw-text-opacity:1;color:rgb(253 186 116 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.placeholder-gray-400::placeholder{--tw-placeholder-opacity:1;color:rgb(156 163 175 / var(--tw-placeholder-opacity, 1))}.opacity-20{opacity:0.2}.opacity-30{opacity:0.3}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-300{transition-duration:300ms}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-blue-400\/50:hover{border-color:rgb(96 165 250 / 0.5)}.hover\:border-green-400\/50:hover{border-color:rgb(74 222 128 / 0.5)}.hover\:border-purple-400\/50:hover{border-color:rgb(192 132 252 / 0.5)}.hover\:border-white\/20:hover{border-color:rgb(255 255 255 / 0.2)}.hover\:bg-purple-400:hover{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:text-blue-400:hover{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.hover\:text-green-400:hover{--tw-text-opacity:1;color:rgb(74 222 128 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-green-400:focus{--tw-border-opacity:1;border-color:rgb(74 222 128 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-8xl{font-size:6rem;line-height:1}}</style></head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Particle Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"><div class="particle" style="left: 99.4357%; animation-delay: 6.5327s; animation-duration: 5.94886s;"></div><div class="particle" style="left: 97.0391%; animation-delay: 7.67429s; animation-duration: 7.36029s;"></div><div class="particle" style="left: 24.1179%; animation-delay: 5.25228s; animation-duration: 6.03908s;"></div><div class="particle" style="left: 69.3823%; animation-delay: 1.85978s; animation-duration: 5.73635s;"></div><div class="particle" style="left: 89.3262%; animation-delay: 5.92007s; animation-duration: 6.0655s;"></div><div class="particle" style="left: 20.3403%; animation-delay: 2.2584s; animation-duration: 6.19556s;"></div><div class="particle" style="left: 75.3669%; animation-delay: 4.93213s; animation-duration: 7.24218s;"></div><div class="particle" style="left: 3.20146%; animation-delay: 2.45749s; animation-duration: 6.84401s;"></div><div class="particle" style="left: 9.02241%; animation-delay: 1.21459s; animation-duration: 5.87205s;"></div><div class="particle" style="left: 8.88919%; animation-delay: 0.399342s; animation-duration: 5.81309s;"></div><div class="particle" style="left: 10.0345%; animation-delay: 5.54852s; animation-duration: 7.55952s;"></div><div class="particle" style="left: 17.0174%; animation-delay: 3.8334s; animation-duration: 5.1898s;"></div><div class="particle" style="left: 65.2066%; animation-delay: 1.91012s; animation-duration: 7.51282s;"></div><div class="particle" style="left: 96.8962%; animation-delay: 2.24934s; animation-duration: 6.63744s;"></div><div class="particle" style="left: 98.9334%; animation-delay: 1.54508s; animation-duration: 7.28185s;"></div><div class="particle" style="left: 73.4141%; animation-delay: 1.24204s; animation-duration: 7.5149s;"></div><div class="particle" style="left: 8.74148%; animation-delay: 0.142533s; animation-duration: 5.23927s;"></div><div class="particle" style="left: 43.9886%; animation-delay: 0.357755s; animation-duration: 7.37186s;"></div><div class="particle" style="left: 45.4291%; animation-delay: 4.39054s; animation-duration: 5.61495s;"></div><div class="particle" style="left: 82.3221%; animation-delay: 5.99959s; animation-duration: 5.85879s;"></div><div class="particle" style="left: 92.5872%; animation-delay: 5.60966s; animation-duration: 5.29165s;"></div><div class="particle" style="left: 17.3736%; animation-delay: 2.2415s; animation-duration: 7.21685s;"></div><div class="particle" style="left: 22.6912%; animation-delay: 6.54123s; animation-duration: 7.33606s;"></div><div class="particle" style="left: 69.1698%; animation-delay: 1.05915s; animation-duration: 6.71306s;"></div><div class="particle" style="left: 93.7626%; animation-delay: 4.06473s; animation-duration: 6.71742s;"></div><div class="particle" style="left: 59.7107%; animation-delay: 5.31646s; animation-duration: 7.48285s;"></div><div class="particle" style="left: 15.6763%; animation-delay: 1.12956s; animation-duration: 7.48108s;"></div><div class="particle" style="left: 59.698%; animation-delay: 2.1313s; animation-duration: 6.61528s;"></div><div class="particle" style="left: 90.9863%; animation-delay: 2.72312s; animation-duration: 5.6726s;"></div><div class="particle" style="left: 78.3816%; animation-delay: 2.10454s; animation-duration: 6.51802s;"></div><div class="particle" style="left: 88.7598%; animation-delay: 1.62751s; animation-duration: 5.21795s;"></div><div class="particle" style="left: 7.31274%; animation-delay: 6.0666s; animation-duration: 6.06966s;"></div><div class="particle" style="left: 41.0555%; animation-delay: 6.67147s; animation-duration: 5.87644s;"></div><div class="particle" style="left: 4.37663%; animation-delay: 5.78222s; animation-duration: 6.01989s;"></div><div class="particle" style="left: 23.4437%; animation-delay: 5.14925s; animation-duration: 6.82365s;"></div><div class="particle" style="left: 12.8876%; animation-delay: 2.32124s; animation-duration: 6.71546s;"></div><div class="particle" style="left: 91.5793%; animation-delay: 1.68559s; animation-duration: 6.16399s;"></div><div class="particle" style="left: 70.2328%; animation-delay: 1.65611s; animation-duration: 5.55618s;"></div><div class="particle" style="left: 10.7119%; animation-delay: 4.77554s; animation-duration: 6.74974s;"></div><div class="particle" style="left: 66.8271%; animation-delay: 0.733211s; animation-duration: 5.60603s;"></div><div class="particle" style="left: 93.2035%; animation-delay: 4.68045s; animation-duration: 5.14039s;"></div><div class="particle" style="left: 5.15979%; animation-delay: 3.03784s; animation-duration: 5.31482s;"></div><div class="particle" style="left: 19.6036%; animation-delay: 2.97567s; animation-duration: 6.55771s;"></div><div class="particle" style="left: 22.9287%; animation-delay: 0.428048s; animation-duration: 7.41023s;"></div><div class="particle" style="left: 36.4158%; animation-delay: 7.64249s; animation-duration: 6.90286s;"></div><div class="particle" style="left: 0.462214%; animation-delay: 3.88449s; animation-duration: 5.68123s;"></div><div class="particle" style="left: 2.63595%; animation-delay: 0.606094s; animation-duration: 6.02557s;"></div><div class="particle" style="left: 24.3202%; animation-delay: 6.01908s; animation-duration: 5.50041s;"></div><div class="particle" style="left: 80.4527%; animation-delay: 7.43354s; animation-duration: 7.79432s;"></div><div class="particle" style="left: 10.6096%; animation-delay: 4.96086s; animation-duration: 5.77198s;"></div><div class="particle" style="left: 5.65608%; animation-delay: 7.24941s; animation-duration: 7.95807s;"></div><div class="particle" style="left: 57.5202%; animation-delay: 0.0975117s; animation-duration: 7.17233s;"></div><div class="particle" style="left: 20.9164%; animation-delay: 0.432687s; animation-duration: 6.89023s;"></div><div class="particle" style="left: 5.83392%; animation-delay: 7.56681s; animation-duration: 7.73213s;"></div><div class="particle" style="left: 0.354732%; animation-delay: 1.81425s; animation-duration: 5.92665s;"></div><div class="particle" style="left: 50.8101%; animation-delay: 2.73617s; animation-duration: 6.65816s;"></div><div class="particle" style="left: 13.1904%; animation-delay: 0.93178s; animation-duration: 7.33538s;"></div><div class="particle" style="left: 31.0516%; animation-delay: 2.83776s; animation-duration: 6.39075s;"></div><div class="particle" style="left: 65.7705%; animation-delay: 3.40634s; animation-duration: 5.75923s;"></div><div class="particle" style="left: 29.0589%; animation-delay: 2.11111s; animation-duration: 6.18712s;"></div><div class="particle" style="left: 45.9611%; animation-delay: 1.69986s; animation-duration: 7.38568s;"></div><div class="particle" style="left: 99.3916%; animation-delay: 1.29761s; animation-duration: 7.02002s;"></div><div class="particle" style="left: 33.9064%; animation-delay: 7.9144s; animation-duration: 6.60993s;"></div><div class="particle" style="left: 45.3601%; animation-delay: 1.02587s; animation-duration: 6.43804s;"></div><div class="particle" style="left: 78.6414%; animation-delay: 3.55226s; animation-duration: 7.5488s;"></div><div class="particle" style="left: 12.0113%; animation-delay: 5.26465s; animation-duration: 6.87693s;"></div><div class="particle" style="left: 21.9572%; animation-delay: 0.0949427s; animation-duration: 7.99004s;"></div><div class="particle" style="left: 23.0859%; animation-delay: 7.51172s; animation-duration: 6.91669s;"></div><div class="particle" style="left: 55.2613%; animation-delay: 7.02792s; animation-duration: 7.18876s;"></div><div class="particle" style="left: 17.553%; animation-delay: 1.19713s; animation-duration: 6.38156s;"></div><div class="particle" style="left: 74.7514%; animation-delay: 1.17258s; animation-duration: 5.78532s;"></div><div class="particle" style="left: 92.0374%; animation-delay: 4.24293s; animation-duration: 6.63577s;"></div><div class="particle" style="left: 10.3612%; animation-delay: 7.56456s; animation-duration: 7.02334s;"></div><div class="particle" style="left: 85.4153%; animation-delay: 0.000325643s; animation-duration: 5.49496s;"></div><div class="particle" style="left: 79.4489%; animation-delay: 0.830534s; animation-duration: 5.62279s;"></div><div class="particle" style="left: 90.2816%; animation-delay: 6.69644s; animation-duration: 6.65438s;"></div><div class="particle" style="left: 66.8015%; animation-delay: 7.62428s; animation-duration: 7.63334s;"></div><div class="particle" style="left: 86.2884%; animation-delay: 7.48796s; animation-duration: 5.73625s;"></div><div class="particle" style="left: 2.18682%; animation-delay: 0.891519s; animation-duration: 5.72254s;"></div><div class="particle" style="left: 6.69837%; animation-delay: 0.316649s; animation-duration: 7.61718s;"></div><div class="particle" style="left: 14.8076%; animation-delay: 1.62211s; animation-duration: 6.1019s;"></div><div class="particle" style="left: 87.9441%; animation-delay: 3.43591s; animation-duration: 6.45616s;"></div><div class="particle" style="left: 38.3686%; animation-delay: 0.149992s; animation-duration: 6.4411s;"></div><div class="particle" style="left: 62.2632%; animation-delay: 7.49458s; animation-duration: 7.27748s;"></div><div class="particle" style="left: 70.7377%; animation-delay: 7.04182s; animation-duration: 7.41465s;"></div><div class="particle" style="left: 24.3528%; animation-delay: 1.65155s; animation-duration: 6.52195s;"></div><div class="particle" style="left: 81.0562%; animation-delay: 3.06399s; animation-duration: 6.37235s;"></div><div class="particle" style="left: 1.4361%; animation-delay: 0.0210528s; animation-duration: 5.88325s;"></div><div class="particle" style="left: 45.8394%; animation-delay: 7.60754s; animation-duration: 5.85315s;"></div><div class="particle" style="left: 28.4857%; animation-delay: 6.78309s; animation-duration: 6.42752s;"></div><div class="particle" style="left: 50.0103%; animation-delay: 2.72492s; animation-duration: 5.21995s;"></div><div class="particle" style="left: 57.2474%; animation-delay: 7.0937s; animation-duration: 7.98577s;"></div><div class="particle" style="left: 27.1063%; animation-delay: 0.874879s; animation-duration: 5.54233s;"></div><div class="particle" style="left: 4.72837%; animation-delay: 1.57748s; animation-duration: 7.84711s;"></div><div class="particle" style="left: 98.1223%; animation-delay: 4.59116s; animation-duration: 6.27298s;"></div><div class="particle" style="left: 92.4008%; animation-delay: 6.29711s; animation-duration: 5.03735s;"></div><div class="particle" style="left: 85.4015%; animation-delay: 7.25738s; animation-duration: 5.84146s;"></div><div class="particle" style="left: 89.2934%; animation-delay: 6.5729s; animation-duration: 6.41986s;"></div><div class="particle" style="left: 52.15%; animation-delay: 5.28376s; animation-duration: 7.60065s;"></div><div class="particle" style="left: 91.4796%; animation-delay: 6.75568s; animation-duration: 6.70382s;"></div><div class="particle" style="left: 81.8347%; animation-delay: 4.46009s; animation-duration: 6.57996s;"></div><div class="particle" style="left: 46.9573%; animation-delay: 2.51747s; animation-duration: 7.19892s;"></div><div class="particle" style="left: 8.77457%; animation-delay: 1.9482s; animation-duration: 6.01666s;"></div><div class="particle" style="left: 69.3642%; animation-delay: 1.9274s; animation-duration: 7.58126s;"></div><div class="particle" style="left: 86.0141%; animation-delay: 0.108057s; animation-duration: 5.25111s;"></div><div class="particle" style="left: 53.9072%; animation-delay: 4.09289s; animation-duration: 6.57691s;"></div><div class="particle" style="left: 79.012%; animation-delay: 1.75534s; animation-duration: 5.55456s;"></div><div class="particle" style="left: 51.354%; animation-delay: 5.88103s; animation-duration: 7.57897s;"></div><div class="particle" style="left: 99.0378%; animation-delay: 1.25569s; animation-duration: 6.87685s;"></div><div class="particle" style="left: 90.9546%; animation-delay: 6.08134s; animation-duration: 7.10144s;"></div><div class="particle" style="left: 60.9273%; animation-delay: 4.6176s; animation-duration: 5.24986s;"></div><div class="particle" style="left: 87.0253%; animation-delay: 2.00517s; animation-duration: 6.72993s;"></div><div class="particle" style="left: 84.2038%; animation-delay: 7.98047s; animation-duration: 6.50377s;"></div><div class="particle" style="left: 30.4134%; animation-delay: 5.72523s; animation-duration: 7.70692s;"></div><div class="particle" style="left: 36.741%; animation-delay: 2.58777s; animation-duration: 5.48593s;"></div><div class="particle" style="left: 74.9121%; animation-delay: 1.31254s; animation-duration: 7.98966s;"></div><div class="particle" style="left: 35.4977%; animation-delay: 0.607906s; animation-duration: 6.14887s;"></div><div class="particle" style="left: 78.2886%; animation-delay: 3.46585s; animation-duration: 5.13694s;"></div><div class="particle" style="left: 80.7617%; animation-delay: 0.129085s; animation-duration: 5.12195s;"></div><div class="particle" style="left: 85.1427%; animation-delay: 0.978287s; animation-duration: 6.08872s;"></div><div class="particle" style="left: 48.4558%; animation-delay: 6.14194s; animation-duration: 5.29883s;"></div><div class="particle" style="left: 90.4432%; animation-delay: 5.63508s; animation-duration: 6.22692s;"></div><div class="particle" style="left: 48.1376%; animation-delay: 6.86584s; animation-duration: 6.6622s;"></div><div class="particle" style="left: 70.9121%; animation-delay: 1.08659s; animation-duration: 6.38018s;"></div><div class="particle" style="left: 81.4347%; animation-delay: 6.8127s; animation-duration: 7.0242s;"></div><div class="particle" style="left: 26.9357%; animation-delay: 7.58181s; animation-duration: 6.14295s;"></div><div class="particle" style="left: 52.624%; animation-delay: 0.252103s; animation-duration: 5.52023s;"></div><div class="particle" style="left: 40.4092%; animation-delay: 3.22433s; animation-duration: 6.9463s;"></div><div class="particle" style="left: 10.278%; animation-delay: 3.31875s; animation-duration: 5.30929s;"></div><div class="particle" style="left: 79.1686%; animation-delay: 5.17123s; animation-duration: 6.85422s;"></div><div class="particle" style="left: 87.6201%; animation-delay: 3.02496s; animation-duration: 5.18105s;"></div><div class="particle" style="left: 87.8764%; animation-delay: 4.03688s; animation-duration: 5.20243s;"></div><div class="particle" style="left: 12.33%; animation-delay: 0.185238s; animation-duration: 6.62182s;"></div><div class="particle" style="left: 15.2232%; animation-delay: 3.77914s; animation-duration: 6.05459s;"></div><div class="particle" style="left: 11.3305%; animation-delay: 0.156618s; animation-duration: 7.06505s;"></div><div class="particle" style="left: 99.506%; animation-delay: 5.52491s; animation-duration: 6.92524s;"></div><div class="particle" style="left: 9.51834%; animation-delay: 4.92206s; animation-duration: 7.4933s;"></div><div class="particle" style="left: 51.2586%; animation-delay: 3.29536s; animation-duration: 6.71507s;"></div><div class="particle" style="left: 52.0893%; animation-delay: 2.47375s; animation-duration: 5.55081s;"></div><div class="particle" style="left: 48.8476%; animation-delay: 5.23234s; animation-duration: 7.95173s;"></div><div class="particle" style="left: 23.5446%; animation-delay: 1.12862s; animation-duration: 5.25254s;"></div><div class="particle" style="left: 53.3579%; animation-delay: 1.62901s; animation-duration: 7.32313s;"></div><div class="particle" style="left: 59.2353%; animation-delay: 6.52945s; animation-duration: 7.97361s;"></div><div class="particle" style="left: 34.4042%; animation-delay: 2.87198s; animation-duration: 7.41939s;"></div><div class="particle" style="left: 20.7685%; animation-delay: 1.238s; animation-duration: 6.9651s;"></div><div class="particle" style="left: 94.4604%; animation-delay: 2.68568s; animation-duration: 5.13539s;"></div><div class="particle" style="left: 49.5275%; animation-delay: 6.06454s; animation-duration: 7.69206s;"></div><div class="particle" style="left: 91.059%; animation-delay: 0.371924s; animation-duration: 6.6141s;"></div><div class="particle" style="left: 94.4143%; animation-delay: 0.462043s; animation-duration: 7.24103s;"></div><div class="particle" style="left: 63.0016%; animation-delay: 1.42268s; animation-duration: 5.75673s;"></div></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-black/20 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 eco-gradient rounded-2xl flex items-center justify-center glow floating">
+                        <span class="text-white font-bold text-2xl">🌱</span>
+                    </div>
+                    <span class="text-3xl font-bold neon-text">EcoLearn</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Quests</a>
+                    <a href="#" class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Leaderboard</a>
+                    <a href="#" class="text-gray-300 hover:text-green-400 font-medium transition-colors duration-300">Community</a>
+                    <button id="loginBtn" class="eco-gradient text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 glow">
+                        Login / Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="morphing-bg absolute inset-0 opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-6xl lg:text-8xl font-black leading-tight">
+                            <span class="block text-purple-400">Learn.</span>
+                            <span class="block text-green-250 neon-text">Play.</span>
+                            <span class="block typing-animation">Save Earth.</span>
+                        </h1>
+                        <p class="text-2xl text-gray-300 leading-relaxed">
+                            🚀 The world's most <span class="text-green-400 font-bold">addictive</span> environmental education platform. 
+                            Earn XP, unlock superpowers, and become an <span class="text-purple-400 font-bold">Eco Legend!</span>
+                        </p>
+                    </div>
+                    
+                    <!-- Live Stats -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 card-3d" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+                            <div id="studentCount" class="text-4xl font-black text-green-400">50K+</div>
+                            <div class="text-sm text-gray-400">Active Eco Warriors</div>
+                        </div>
+                        <div class="text-center p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 card-3d" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 42.6417px);">
+                            <div id="xpCount" class="text-4xl font-black text-purple-400">1.2M+</div>
+                            <div class="text-sm text-gray-400">XP Earned Today</div>
+                        </div>
+                        <div class="text-center p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 card-3d" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                            <div id="schoolCount" class="text-4xl font-black text-blue-400">1.2K+</div>
+                            <div class="text-sm text-gray-400">Schools Joined</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-6">
+                        <button id="startLearningBtn" class="eco-gradient text-white px-10 py-5 rounded-full font-bold text-xl hover:scale-110 transition-all duration-300 pulse-glow">
+                            🚀 Start Your Journey
+                        </button>
+                        <button id="watchDemoBtn" class="border-2 border-purple-400 text-purple-400 px-10 py-5 rounded-full font-bold text-xl hover:bg-purple-400 hover:text-white transition-all duration-300">
+                            🎬 Watch Magic
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Interactive Dashboard -->
+                <div class="relative">
+                    <div class="floating">
+                        <div class="bg-black/40 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20 card-3d glow" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                            <!-- Real-time Dashboard -->
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="font-bold text-2xl">🎮 Live Dashboard</h3>
+                                    <div class="eco-gradient text-white px-4 py-2 rounded-full text-sm font-bold pulse-glow">
+                                        <span id="userLevel">Level 12</span> 🌟
+                                    </div>
+                                </div>
+                                
+                                <!-- XP Progress with Animation -->
+                                <div class="bg-white/10 rounded-2xl p-6 border border-white/20">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="font-semibold text-lg">⚡ XP Progress</span>
+                                        <span class="text-green-400 font-bold text-xl">
+                                            <span id="currentXP">2,450</span> / <span id="maxXP">3,000</span>
+                                        </span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-4 overflow-hidden">
+                                        <div id="xpProgress" class="eco-gradient h-4 rounded-full transition-all duration-1000 ease-out" style="width: 82%;"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Achievement Badges -->
+                                <div class="grid grid-cols-4 gap-4">
+                                    <div class="bg-yellow-500/20 p-4 rounded-2xl text-center border border-yellow-500/30 card-3d hover:scale-110 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                        <div class="text-3xl mb-2">🏆</div>
+                                        <div class="text-xs font-semibold text-yellow-400">Eco Hero</div>
+                                    </div>
+                                    <div class="bg-green-500/20 p-4 rounded-2xl text-center border border-green-500/30 card-3d hover:scale-110 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                        <div class="text-3xl mb-2">🌱</div>
+                                        <div class="text-xs font-semibold text-green-400">Tree Master</div>
+                                    </div>
+                                    <div class="bg-blue-500/20 p-4 rounded-2xl text-center border border-blue-500/30 card-3d hover:scale-110 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                        <div class="text-3xl mb-2">💧</div>
+                                        <div class="text-xs font-semibold text-blue-400">Water Guardian</div>
+                                    </div>
+                                    <div class="bg-purple-500/20 p-4 rounded-2xl text-center border border-purple-500/30 card-3d hover:scale-110 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                        <div class="text-3xl mb-2">♻️</div>
+                                        <div class="text-xs font-semibold text-purple-400">Recycler Pro</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Live Streak Counter -->
+                                <div class="bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-2xl p-6">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="font-bold text-xl text-orange-400">🔥 Epic Streak!</div>
+                                            <div class="text-orange-300">You're on fire! Keep going!</div>
+                                        </div>
+                                        <div class="text-5xl font-black text-orange-400" id="streakCounter">7</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-6xl font-black text-white mb-6">🎮 Superpowers Unlocked</h2>
+                <p class="text-2xl text-gray-300">Experience the future of environmental education</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Gamification Engine -->
+                <div class="card-3d bg-gradient-to-br from-green-500/20 to-emerald-600/20 p-10 rounded-3xl border border-green-500/30 hover:border-green-400/50 transition-all duration-300 group" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 50px);">
+                    <div class="w-20 h-20 eco-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="text-3xl">🎮</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Gamification Engine</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-center"><span class="text-green-400 mr-3 text-xl">⚡</span> Dynamic XP &amp; Badge System</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-3 text-xl">🏆</span> Real-time Leaderboards</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-3 text-xl">🔥</span> Streak Multipliers</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-3 text-xl">🎯</span> Achievement Unlocks</li>
+                    </ul>
+                </div>
+                
+                <!-- Analytics Dashboard -->
+                <div class="card-3d bg-gradient-to-br from-blue-500/20 to-cyan-600/20 p-10 rounded-3xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 group" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 50px);">
+                    <div class="w-20 h-20 purple-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="text-3xl">📊</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">AI Analytics Hub</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-center"><span class="text-blue-400 mr-3 text-xl">🤖</span> AI-Powered Insights</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-3 text-xl">📈</span> Performance Tracking</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-3 text-xl">🎯</span> Smart Recommendations</li>
+                        <li class="flex items-center"><span class="text-blue-400 mr-3 text-xl">⚡</span> Instant Feedback</li>
+                    </ul>
+                </div>
+                
+                <!-- Eco Missions -->
+                <div class="card-3d bg-gradient-to-br from-purple-500/20 to-pink-600/20 p-10 rounded-3xl border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 group" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 50px);">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                        <span class="text-3xl">🌍</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Epic Eco Missions</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-center"><span class="text-purple-400 mr-3 text-xl">🎯</span> Weekly Boss Challenges</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-3 text-xl">🗺️</span> AR Campus Adventures</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-3 text-xl">🎮</span> Interactive Mini-Games</li>
+                        <li class="flex items-center"><span class="text-purple-400 mr-3 text-xl">🏅</span> Legendary Rewards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Leaderboard -->
+    <section class="py-32 bg-black/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-6xl font-black text-white">🏆 Battle Royale</h2>
+                    <p class="text-2xl text-gray-300">
+                        Compete in real-time with eco warriors worldwide! 
+                        Climb the ranks and become the ultimate <span class="text-green-400 font-bold">Planet Protector!</span>
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center pulse-glow">
+                                <span class="text-white font-bold text-xl">🏆</span>
+                            </div>
+                            <span class="font-semibold text-xl">Global Championships</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center pulse-glow">
+                                <span class="text-white font-bold text-xl">👥</span>
+                            </div>
+                            <span class="font-semibold text-xl">Team Battles</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center pulse-glow">
+                                <span class="text-white font-bold text-xl">⚡</span>
+                            </div>
+                            <span class="font-semibold text-xl">Lightning Rounds</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Leaderboard -->
+                <div class="bg-black/40 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20 glow">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-2xl font-bold">⚡ Live Rankings</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-semibold border border-green-500/30">Today</button>
+                            <button class="text-gray-400 px-4 py-2 rounded-full text-sm">Week</button>
+                            <button class="text-gray-400 px-4 py-2 rounded-full text-sm">All Time</button>
+                        </div>
+                    </div>
+                    
+                    <div id="leaderboard" class="space-y-4">
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                1
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">👩‍🎓</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">Sarah Chen</div>
+                                    <div class="text-sm text-gray-400">Green Valley Academy</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl text-yellow-400">3,450 XP</div>
+                            <div class="text-sm text-gray-400">Level 15</div>
+                        </div>
+                    </div>
+                
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                2
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">👨‍🎓</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">Alex Kumar</div>
+                                    <div class="text-sm text-gray-400">Eco Future School</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl text-gray-400">3,200 XP</div>
+                            <div class="text-sm text-gray-400">Level 14</div>
+                        </div>
+                    </div>
+                
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                3
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">👩‍🔬</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">Maya Patel</div>
+                                    <div class="text-sm text-gray-400">Earth Guardians High</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl text-orange-400">2,980 XP</div>
+                            <div class="text-sm text-gray-400">Level 13</div>
+                        </div>
+                    </div>
+                
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                4
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">👨‍💻</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">Jake Wilson</div>
+                                    <div class="text-sm text-gray-400">Sustainable Learning Hub</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl text-green-400">2,750 XP</div>
+                            <div class="text-sm text-gray-400">Level 12</div>
+                        </div>
+                    </div>
+                
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                5
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">👩‍🌾</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">Emma Davis</div>
+                                    <div class="text-sm text-gray-400">Climate Champions School</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl text-blue-400">2,650 XP</div>
+                            <div class="text-sm text-gray-400">Level 12</div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <button class="w-full mt-8 eco-gradient text-white py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-transform duration-300">
+                        🚀 Join the Battle!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Showcase -->
+    <section class="py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-6xl font-black text-white mb-6">🌟 Community Legends</h2>
+                <p class="text-2xl text-gray-300">Share your victories and inspire the next generation of eco heroes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Community Feed -->
+                <div class="bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-3xl p-10 border border-white/20">
+                    <h3 class="text-3xl font-bold text-white mb-8">📸 Victory Feed</h3>
+                    
+                    <div id="communityFeed" class="space-y-6">
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="text-2xl">👨‍💻</span>
+                            <div>
+                                <div class="font-bold text-white">Jake Wilson</div>
+                                <div class="text-sm text-gray-400">2 hours ago</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Just completed the "Zero Waste Week" challenge! 🌱 My family eliminated 90% of our plastic waste!</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center space-x-6 text-gray-400">
+                                <span class="hover:text-red-400 cursor-pointer transition-colors">❤️ 47</span>
+                                <span class="hover:text-blue-400 cursor-pointer transition-colors">💬 12</span>
+                            </div>
+                            <span class="text-green-400 font-bold">+150 XP</span>
+                        </div>
+                    </div>
+                
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="text-2xl">👩‍🌾</span>
+                            <div>
+                                <div class="font-bold text-white">Emma Davis</div>
+                                <div class="text-sm text-gray-400">4 hours ago</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Our school planted 100 trees today! 🌳 The AR tree-planting game made it so much fun!</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center space-x-6 text-gray-400">
+                                <span class="hover:text-red-400 cursor-pointer transition-colors">❤️ 89</span>
+                                <span class="hover:text-blue-400 cursor-pointer transition-colors">💬 23</span>
+                            </div>
+                            <span class="text-green-400 font-bold">+200 XP</span>
+                        </div>
+                    </div>
+                
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="text-2xl">👩‍🔬</span>
+                            <div>
+                                <div class="font-bold text-white">Maya Patel</div>
+                                <div class="text-sm text-gray-400">6 hours ago</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Reached Level 13 by completing the Ocean Cleanup mission! 🌊 Who else is joining the marine protection quest?</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center space-x-6 text-gray-400">
+                                <span class="hover:text-red-400 cursor-pointer transition-colors">❤️ 156</span>
+                                <span class="hover:text-blue-400 cursor-pointer transition-colors">💬 34</span>
+                            </div>
+                            <span class="text-green-400 font-bold">+300 XP</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <!-- Reward Showcase -->
+                <div class="space-y-10">
+                    <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl p-10 border border-purple-500/30">
+                        <h3 class="text-3xl font-bold text-white mb-8">🎁 Epic Rewards</h3>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white/10 rounded-2xl p-6 text-center card-3d hover:scale-105 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                <div class="text-4xl mb-3">🏅</div>
+                                <div class="font-bold text-lg">Legendary Badges</div>
+                                <div class="text-sm text-gray-400">Collect &amp; Flex</div>
+                            </div>
+                            <div class="bg-white/10 rounded-2xl p-6 text-center card-3d hover:scale-105 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                <div class="text-4xl mb-3">🎓</div>
+                                <div class="font-bold text-lg">Certificates</div>
+                                <div class="text-sm text-gray-400">Official Recognition</div>
+                            </div>
+                            <div class="bg-white/10 rounded-2xl p-6 text-center card-3d hover:scale-105 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                <div class="text-4xl mb-3">💎</div>
+                                <div class="font-bold text-lg">Eco-Crystals</div>
+                                <div class="text-sm text-gray-400">Premium Currency</div>
+                            </div>
+                            <div class="bg-white/10 rounded-2xl p-6 text-center card-3d hover:scale-105 transition-transform" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                                <div class="text-4xl mb-3">🎯</div>
+                                <div class="font-bold text-lg">Exclusive Access</div>
+                                <div class="text-sm text-gray-400">VIP Features</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-2xl p-6 border border-purple-400/30">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-semibold text-lg">💎 Your Eco-Crystals</span>
+                                <span class="text-3xl font-black text-purple-400" id="ecoCrystals">1,250</span>
+                            </div>
+                            <div class="text-sm text-gray-400 mb-6">Unlock exclusive rewards and power-ups!</div>
+                            <button class="w-full purple-gradient text-white py-3 rounded-xl font-bold hover:scale-105 transition-transform duration-300">
+                                🛒 Reward Store
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="morphing-bg absolute inset-0 opacity-30"></div>
+        <div class="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-6xl font-black text-white mb-8">Ready to Save the World? 🌍</h2>
+            <p class="text-2xl text-gray-200 mb-12">
+                Join <span class="text-green-400 font-bold" id="totalUsers">52K+</span> eco warriors already making a difference!
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                <button id="startTrialBtn" class="eco-gradient text-white px-12 py-6 rounded-full font-bold text-xl hover:scale-110 transition-all duration-300 pulse-glow">
+                    🚀 Start Epic Journey - FREE!
+                </button>
+                <button id="scheduleDemoBtn" class="border-2 border-white text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-white hover:text-gray-900 transition-all duration-300">
+                    🎬 See the Magic
+                </button>
+            </div>
+            
+            <div class="text-green-300 text-lg">
+                <p>✨ 30-day free trial • 🚀 No credit card required • ⚡ Setup in 60 seconds</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 backdrop-blur-lg border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 eco-gradient rounded-2xl flex items-center justify-center glow">
+                            <span class="text-white font-bold text-2xl">🌱</span>
+                        </div>
+                        <span class="text-3xl font-bold neon-text">EcoLearn</span>
+                    </div>
+                    <p class="text-gray-400 text-lg">Revolutionizing environmental education through gamification and AI-powered learning experiences.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-xl text-white">🚀 Platform</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-xl text-white">📚 Resources</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-xl text-white">🏢 Company</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
+                <p class="text-lg">© 2024 EcoLearn. All rights reserved. Built with 💚 for a sustainable future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black/80 backdrop-blur-lg flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-3xl p-8 max-w-md w-full mx-4 border border-white/20">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-white mb-2">🚀 Join EcoLearn</h3>
+                <p class="text-gray-400">Start your eco-warrior journey today!</p>
+            </div>
+            
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <input type="email" id="email" placeholder="Email Address" required="" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none">
+                </div>
+                <div>
+                    <input type="password" id="password" placeholder="Password" required="" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-green-400 focus:outline-none">
+                </div>
+                <button type="submit" class="w-full eco-gradient text-white py-3 rounded-xl font-bold hover:scale-105 transition-transform">
+                    🌟 Start Learning
+                </button>
+            </form>
+            
+            <div class="text-center mt-6">
+                <button id="closeModal" class="text-gray-400 hover:text-white">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulated Backend API Class
+        class EcoLearnAPI {
+            constructor() {
+                this.baseURL = 'https://api.ecolearn.com'; // This would be your actual backend
+                this.mockData = {
+                    stats: {
+                        students: 52847,
+                        xpToday: 1247893,
+                        schools: 1247
+                    },
+                    leaderboard: [
+                        { name: 'Sarah Chen', school: 'Green Valley Academy', xp: 3450, level: 15, avatar: '👩‍🎓' },
+                        { name: 'Alex Kumar', school: 'Eco Future School', xp: 3200, level: 14, avatar: '👨‍🎓' },
+                        { name: 'Maya Patel', school: 'Earth Guardians High', xp: 2980, level: 13, avatar: '👩‍🔬' },
+                        { name: 'Jake Wilson', school: 'Sustainable Learning Hub', xp: 2750, level: 12, avatar: '👨‍💻' },
+                        { name: 'Emma Davis', school: 'Climate Champions School', xp: 2650, level: 12, avatar: '👩‍🌾' }
+                    ],
+                    communityPosts: [
+                        {
+                            user: 'Jake Wilson',
+                            avatar: '👨‍💻',
+                            time: '2 hours ago',
+                            content: 'Just completed the "Zero Waste Week" challenge! 🌱 My family eliminated 90% of our plastic waste!',
+                            likes: 47,
+                            comments: 12,
+                            xp: 150
+                        },
+                        {
+                            user: 'Emma Davis',
+                            avatar: '👩‍🌾',
+                            time: '4 hours ago',
+                            content: 'Our school planted 100 trees today! 🌳 The AR tree-planting game made it so much fun!',
+                            likes: 89,
+                            comments: 23,
+                            xp: 200
+                        },
+                        {
+                            user: 'Maya Patel',
+                            avatar: '👩‍🔬',
+                            time: '6 hours ago',
+                            content: 'Reached Level 13 by completing the Ocean Cleanup mission! 🌊 Who else is joining the marine protection quest?',
+                            likes: 156,
+                            comments: 34,
+                            xp: 300
+                        }
+                    ]
+                };
+            }
+
+            // Simulate API calls with realistic delays
+            async getStats() {
+                await this.delay(500);
+                return this.mockData.stats;
+            }
+
+            async getLeaderboard() {
+                await this.delay(300);
+                return this.mockData.leaderboard;
+            }
+
+            async getCommunityPosts() {
+                await this.delay(400);
+                return this.mockData.communityPosts;
+            }
+
+            async login(email, password) {
+                await this.delay(1000);
+                // Simulate login validation
+                if (email && password.length >= 6) {
+                    return {
+                        success: true,
+                        user: {
+                            name: 'New Eco Warrior',
+                            level: 1,
+                            xp: 0,
+                            avatar: '🌱'
+                        }
+                    };
+                }
+                throw new Error('Invalid credentials');
+            }
+
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        }
+
+        // Initialize API
+        const api = new EcoLearnAPI();
+
+        // Animation and Interaction Controller
+        class EcoLearnApp {
+            constructor() {
+                this.init();
+            }
+
+            async init() {
+                this.createParticles();
+                this.setupEventListeners();
+                await this.loadData();
+                this.startAnimations();
+            }
+
+            createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 8 + 's';
+                    particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            setupEventListeners() {
+                // Modal controls
+                document.getElementById('loginBtn').addEventListener('click', () => {
+                    document.getElementById('loginModal').classList.remove('hidden');
+                });
+
+                document.getElementById('closeModal').addEventListener('click', () => {
+                    document.getElementById('loginModal').classList.add('hidden');
+                });
+
+                // Form submission
+                document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    
+                    try {
+                        const result = await api.login(email, password);
+                        if (result.success) {
+                            alert('🎉 Welcome to EcoLearn! Your eco-warrior journey begins now!');
+                            document.getElementById('loginModal').classList.add('hidden');
+                        }
+                    } catch (error) {
+                        alert('❌ Login failed. Please check your credentials.');
+                    }
+                });
+
+                // CTA buttons
+                document.getElementById('startLearningBtn').addEventListener('click', () => {
+                    document.getElementById('loginModal').classList.remove('hidden');
+                });
+
+                document.getElementById('startTrialBtn').addEventListener('click', () => {
+                    document.getElementById('loginModal').classList.remove('hidden');
+                });
+            }
+
+            async loadData() {
+                try {
+                    // Load and animate stats
+                    const stats = await api.getStats();
+                    this.animateCounter('studentCount', stats.students, '50K+');
+                    this.animateCounter('xpCount', stats.xpToday, '1.2M+');
+                    this.animateCounter('schoolCount', stats.schools, '1.2K+');
+                    this.animateCounter('totalUsers', stats.students, '52K+');
+
+                    // Load leaderboard
+                    const leaderboard = await api.getLeaderboard();
+                    this.renderLeaderboard(leaderboard);
+
+                    // Load community posts
+                    const posts = await api.getCommunityPosts();
+                    this.renderCommunityFeed(posts);
+
+                } catch (error) {
+                    console.error('Failed to load data:', error);
+                }
+            }
+
+            animateCounter(elementId, targetValue, displayValue) {
+                const element = document.getElementById(elementId);
+                let current = 0;
+                const increment = targetValue / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= targetValue) {
+                        element.textContent = displayValue;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 20);
+            }
+
+            renderLeaderboard(data) {
+                const container = document.getElementById('leaderboard');
+                container.innerHTML = data.map((user, index) => `
+                    <div class="flex items-center justify-between p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 ${this.getRankColor(index)} rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
+                                ${index + 1}
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">${user.avatar}</span>
+                                <div>
+                                    <div class="font-bold text-lg text-white">${user.name}</div>
+                                    <div class="text-sm text-gray-400">${user.school}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-xl ${this.getRankTextColor(index)}">${user.xp.toLocaleString()} XP</div>
+                            <div class="text-sm text-gray-400">Level ${user.level}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderCommunityFeed(posts) {
+                const container = document.getElementById('communityFeed');
+                container.innerHTML = posts.map(post => `
+                    <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="text-2xl">${post.avatar}</span>
+                            <div>
+                                <div class="font-bold text-white">${post.user}</div>
+                                <div class="text-sm text-gray-400">${post.time}</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 leading-relaxed">${post.content}</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <div class="flex items-center space-x-6 text-gray-400">
+                                <span class="hover:text-red-400 cursor-pointer transition-colors">❤️ ${post.likes}</span>
+                                <span class="hover:text-blue-400 cursor-pointer transition-colors">💬 ${post.comments}</span>
+                            </div>
+                            <span class="text-green-400 font-bold">+${post.xp} XP</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            getRankColor(index) {
+                const colors = [
+                    'bg-gradient-to-r from-yellow-400 to-yellow-600',
+                    'bg-gradient-to-r from-gray-300 to-gray-500',
+                    'bg-gradient-to-r from-orange-400 to-orange-600',
+                    'bg-gradient-to-r from-green-400 to-green-600',
+                    'bg-gradient-to-r from-blue-400 to-blue-600'
+                ];
+                return colors[index] || 'bg-gradient-to-r from-purple-400 to-purple-600';
+            }
+
+            getRankTextColor(index) {
+                const colors = ['text-yellow-400', 'text-gray-400', 'text-orange-400', 'text-green-400', 'text-blue-400'];
+                return colors[index] || 'text-purple-400';
+            }
+
+            startAnimations() {
+                // Animate XP progress bar
+                setTimeout(() => {
+                    const progressBar = document.getElementById('xpProgress');
+                    progressBar.style.width = '82%';
+                }, 1000);
+
+                // Animate streak counter
+                let streakCount = 0;
+                const streakInterval = setInterval(() => {
+                    streakCount++;
+                    document.getElementById('streakCounter').textContent = streakCount;
+                    if (streakCount >= 7) clearInterval(streakInterval);
+                }, 200);
+
+                // Animate eco crystals
+                let crystalCount = 0;
+                const crystalInterval = setInterval(() => {
+                    crystalCount += 50;
+                    document.getElementById('ecoCrystals').textContent = crystalCount.toLocaleString();
+                    if (crystalCount >= 1250) clearInterval(crystalInterval);
+                }, 100);
+
+                // GSAP animations for enhanced effects
+                if (typeof gsap !== 'undefined') {
+                    gsap.from('.card-3d', {
+                        duration: 1,
+                        y: 50,
+                        opacity: 0,
+                        stagger: 0.2,
+                        ease: 'power2.out'
+                    });
+                }
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            new EcoLearnApp();
+        });
+
+        // Backend Integration Notes:
+        /*
+        To integrate with a real Node.js backend, you would:
+
+        1. Replace the EcoLearnAPI mock class with actual fetch calls:
+           - GET /api/stats - for live statistics
+           - GET /api/leaderboard - for real-time rankings
+           - GET /api/community/posts - for community feed
+           - POST /api/auth/login - for user authentication
+           - POST /api/users/register - for user registration
+
+        2. Set up WebSocket connections for real-time updates:
+           - Live leaderboard updates
+           - Real-time XP changes
+           - Community post notifications
+
+        3. Implement proper authentication:
+           - JWT tokens for session management
+           - OAuth integration for social login
+           - Role-based access control
+
+        4. Add data persistence:
+           - MongoDB/PostgreSQL for user data
+           - Redis for caching and sessions
+           - File storage for user uploads
+
+        5. Implement gamification backend:
+           - XP calculation algorithms
+           - Badge/achievement systems
+           - Streak tracking
+           - Challenge management
+
+        Example Node.js endpoints:
+        
+        app.get('/api/stats', async (req, res) => {
+            const stats = await StatsService.getLiveStats();
+            res.json(stats);
+        });
+
+        app.get('/api/leaderboard', async (req, res) => {
+            const leaderboard = await LeaderboardService.getTopUsers();
+            res.json(leaderboard);
+        });
+
+        app.post('/api/auth/login', async (req, res) => {
+            const { email, password } = req.body;
+            const user = await AuthService.login(email, password);
+            const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+            res.json({ token, user });
+        });
+        */
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97fa9749459cf648',t:'MTc1Nzk2NTE3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>
